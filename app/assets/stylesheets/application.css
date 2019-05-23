@@ -13,3 +13,220 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr:last-child {
+    display:none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.silver-box {
+    background-color: rgba(200,200,200,0.3);
+    border: 1px solid silver;
+    padding-top: 70px;
+    max-width: 600px;
+    height: auto;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    background-color: purple;
+    box-shadow: 0 0 2px black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px 0;
+}
+
+a {
+    color: purple;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: purple;
+    box-shadow: 0 0 2px black;
+}
+
+.navbar p {
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.navbar a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid purple;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    border-color: white;
+}
+
+.centered {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    width: 300px;
+}
+
+form .input {
+    margin: 5px 0;
+}
+
+form .submit-btn {
+    margin: 15px 0;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.field_with_errors label{
+    color: red;
+}
+
+li {
+    margin: 30px 0;
+}
+
+.flash {
+    border-radius: 5px;
+    width: 300px;
+    line-height: 30px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.error {
+    border: 1px solid red;
+    color: red;
+}
+
+.success {
+    border: 1px solid green;
+    color: green;
+}
+
+.event-form {
+    position: fixed;
+    top: 100px;
+    left: -300px;
+    background-color: purple;
+    box-shadow: 0 0 2px black;
+    color: white;
+    padding: 30px;
+    padding-right: 40px;
+    border-radius: 0 20px 20px 0;
+    transition: left 0.7s;
+}
+
+.event-form:hover {
+    left: 0;
+}
+
+.event-form .input {
+    margin-top: 15px;
+}
+
+.event-form label {
+    display: block;
+    margin: 5px 0;
+}
+
+.event-form .name input {
+    width: 218px;
+}
+
+.event-form textarea {
+    border-radius: 5px;
+    width: 225px;
+    height: 100px;
+    resize: vertical;
+}
+
+.event-form .check{
+    float: left;
+}
+
+.event-form .submit-btn {
+    width: 232px;
+    margin-top: 20px;
+}
+
+.new-event {
+    display: inline-block;
+    transform: rotate(-90deg);
+    position: absolute;
+    right: -10px;
+    top: 150px;
+    font-size: 20px;
+}
+
+.event-tile {
+    margin: 40px 0;
+}
+
+.att-inv {
+    width: 150px;
+}
+
+.att-inv form {
+    width: auto;
+}
+
+.att-inv select {
+    width: 80px;
+}
