@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :liked, source_type: "Post"
   has_many :liked_comments, through: :likes, source: :liked, source_type: "Comment"
 
-  has_many :sent_relations, class_name: "Relation", foreign_key: :sender_id, dependent: :destroy
-  has_many :received_relations, class_name: "Relation", foreign_key: :receiver_id, dependent: :destroy
+  has_many :sent_requests, class_name: "FriendRequest", foreign_key: :sender_id, dependent: :destroy
+  has_many :received_requests, class_name: "FriendRequest", foreign_key: :receiver_id, dependent: :destroy
 
-  def relations
-    self.sent_relations.or(self.received_relations)
+  def requests
+    self.sent_requests.or(self.received_requests)
   end
 
 end

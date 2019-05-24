@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  friend: false
-  block: false
+  accepted: 
+  blocked: false
   pending: false
 
 two:
-  friend: false
-  block: false
+  accepted: 
+  blocked: false
   pending: false

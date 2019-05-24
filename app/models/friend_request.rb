@@ -1,4 +1,4 @@
-class Relation < ApplicationRecord
+class FriendRequest < ApplicationRecord
     belongs_to :sender, class_name: "User"
     belongs_to :receiver, class_name: "User"
     
@@ -7,7 +7,7 @@ class Relation < ApplicationRecord
 
     def not_friends
         query = ["sender_id = #{sender_id} AND receiver_id = #{receiver_id} OR sender_id = #{receiver_id} AND receiver_id = #{sender_id}"]
-        errors.add(:sender_id, "and receiver already friends!") if Relation.where(query).exists?
+        errors.add(:sender_id, "and receiver already friends!") if FriendRequest.where(query).exists?
     end
 
     def not_same
@@ -17,5 +17,4 @@ class Relation < ApplicationRecord
     def users
         [self.sender, self.receiver]
     end
-
 end
