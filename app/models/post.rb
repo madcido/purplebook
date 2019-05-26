@@ -9,4 +9,9 @@ class Post < ApplicationRecord
   default_scope { order("created_at DESC") }
 
   validates :content, presence: true, unless: Proc.new { |post| post.image.attached? }
+  
+  def purge
+    @purge ||= "keep"
+  end
+
 end
