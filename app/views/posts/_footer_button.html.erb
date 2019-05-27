@@ -1,0 +1,5 @@
+<% if collection.include?(current_user) %>
+    <%= render "un#{link}", post: post %>
+<% else %>
+    <%= render "#{link}", post: post %>
+<% end %>

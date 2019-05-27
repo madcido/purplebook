@@ -1,0 +1,16 @@
+<div class="row">
+    <!-- implement gravatar here -->
+    <%= image_tag "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt/999/UP0151-CUSA09971_00-AV00000000000002/1553247440000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000", class: "post-avatar" %>
+    <div class="post-info col flex-start space-evenly">
+        <!-- implement user name here -->
+        <%= link_to post.user.email, post.user, class: "post-author" %>
+        <div>
+            <%= link_to post.created_at.strftime("%B %d at %I:%M %p"), post, class: "post-date" %>
+            <% if post.shared_from_id %>
+                <span> - Shared</span>
+            <% else %>
+                <span> - Original</span>
+            <% end %>
+        </div>
+    </div>
+</div>

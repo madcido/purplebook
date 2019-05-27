@@ -1,0 +1,19 @@
+/* FLASH */
+
+.flash {
+    border-radius: 5px;
+    width: 300px;
+    line-height: 30px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.error {
+    border: 1px solid red;
+    color: red;
+}
+
+.success {
+    border: 1px solid green;
+    color: green;
+}

@@ -1,0 +1,245 @@
+.main-feed {
+    padding-top: 70px;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.field_with_errors label{
+    color: red;
+}
+
+.centered {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.d-none {
+    display: none;
+}
+
+.new-post {
+    position: relative;
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+.post-form {
+    position: relative;
+    .post-form-label {
+        display: block;
+        padding: 10px;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(200, 200, 200, 0.2);
+        border-bottom: 1px solid rgba(200, 200, 200, 0.8);
+    }
+    .post-form-content {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .post-form-image {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        padding-left: 20px;
+    }
+    .gambiarra {
+        position: absolute;
+        display: block;
+        width: 100px;
+        margin: 10px;
+    }
+    .post-form-radio {
+        margin: 10px;
+        margin-right: 0;
+    }
+    .edit-attach:checked ~ div {
+        display: block;
+    }
+    .post-form-btns {
+        margin: 0 10px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(200, 200, 200, 0.8);
+    }
+    .post-form-submit {
+        width: 100%;
+    }
+    .btn-style {
+        box-shadow: 0 0 1px black;
+        background-color: rgb(128, 40, 128);
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        border: none;
+        border-radius: 3px;
+        transition: 0.3s;
+        z-index: 1;
+        cursor: pointer;
+    }
+    .btn-style:hover {
+        background-color: purple;
+    }
+    textarea:focus ~ .post-form-btns, 
+    input:focus ~ .post-form-btns, 
+    .post-form-btns:hover {
+        display: block;
+    }
+}
+
+.post-tile {
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    border-radius: 5px;
+    background-color: white;
+    margin: 10px 0;
+    .post-avatar {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 50%;
+    }
+    .post-info{
+        margin: 10px 0;
+    }
+    .post-author {
+        color: purple;
+        font-weight: bold;
+    }
+    .post-date, span {
+        color: gray;
+        font-size: 12px;
+    }
+    .post-author:hover, 
+    .post-date:hover {
+        text-decoration: underline;
+    }
+    .post-options {
+        position: relative;
+        margin: 10px;
+        color: gray;
+        text-align: right;
+    }
+    .post-options:hover {
+        color: black;
+        width: 100px;
+        > div {
+            position: absolute;
+            right: 0;
+            display: block;
+            border-radius: 2px;
+            background-color: white;
+            box-shadow: 0 0 3px rgba(200, 200, 200, 0.9);
+            z-index: 1;
+            width: 100px;
+            text-align: left;
+            i {
+                margin: 8px;
+            }
+            a {
+                color: black;
+                margin: 5px 0;
+            }
+            a:hover {
+                color: white;
+                background-color: purple;
+                box-shadow: 0 0 1px black;
+            }
+        }
+    }
+    .post-content {
+        margin: 10px;
+        white-space: pre-wrap;
+    }
+    .post-image {
+        width: 100%;
+    }
+    .post-footer {
+        margin: 10px;
+        .left-list,
+        .right-list {
+            position: relative;
+        }
+        .left-list ul {
+            left: 0;
+        }
+        .right-list ul {
+            right: 0;
+        }
+        p {
+            padding: 0 5px;
+            font-size: 12px;
+            color: gray;
+            cursor: default;
+        }
+        p:hover {
+            text-decoration: underline;
+            + ul {
+                display: block;
+            }
+        }
+        a {
+            color: white;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            position: absolute;
+            bottom: 15px;
+            z-index: 1;
+            background-color: rgb(60, 60, 60);
+            border-radius: 3px;
+            box-shadow: inset 0 0 1px black;
+            list-style: none;
+            font-size: 12px;
+            padding: 5px;
+            li {
+                margin-bottom: 3px;
+            }
+            li:last-child {
+                margin: 0;
+            }
+        }
+        ul:hover {
+            display: block;
+        }
+    }
+    .post-buttons {
+        margin: 0 10px;
+        border-top: 1px solid rgba(200, 200, 200, 0.8);
+        .post-btn {
+            flex: 1;
+            text-align: center;
+            margin: 5px 0;
+            .i-container {
+                width: 100%;
+                color: rgb(128, 128, 128);
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                i {
+                    font-size: 16px;
+                    margin: 8px;
+                }
+            }
+            .un- {
+                color: purple;
+            }
+        }
+        .post-btn:hover {
+            background-color: rgba(200, 200, 200, 0.2);
+        }
+    }
+}

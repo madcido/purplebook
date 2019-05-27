@@ -1,0 +1,4 @@
+<a href="<%= like_path(post.likes.find_by(user_id: current_user.id).id) %>" data-method="delete" class="i-container row flex-center center un-">
+    <i class="far fa-thumbs-up"></i>
+    <p>Like</p>
+</a>

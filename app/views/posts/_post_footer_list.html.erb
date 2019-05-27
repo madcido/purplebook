@@ -1,0 +1,8 @@
+<p><%= pluralize count = collection.count, type %></p>
+<% if count > 0 %>
+    <ul class="d-none">
+        <% collection.each do |user| %>
+            <li><%= link_to user.email, user %></li>
+        <% end %>
+    </ul>
+<% end %>

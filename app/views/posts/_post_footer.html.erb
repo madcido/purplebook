@@ -1,0 +1,24 @@
+<div class="post-footer row space-between">
+    <div class="left-list">
+        <%= render "post_footer_list", collection: post.likers, type: "Like" %>
+    </div>
+    <div class="row">
+        <div class="right-list">
+            <%= render "post_footer_list", collection: post.commenters, type: "Comment" %>
+        </div>
+        <div class="right-list">
+            <%= render "post_footer_list", collection: post.sharers, type: "Share" %>
+        </div>
+    </div>
+</div>
+<div class="post-buttons row space-around">
+    <div class="post-btn">
+        <%= render "footer_button", post: post, collection: post.likers, link: "like" %>
+    </div>
+    <div class="post-btn">
+        <!-- implement comments here -->
+        <%= render "comments/button" %>
+    </div><div class="post-btn">
+        <%= render "footer_button", post: post, collection: post.sharers, link: "share" %>
+    </div>
+</div>

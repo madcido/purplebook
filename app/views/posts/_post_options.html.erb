@@ -1,0 +1,15 @@
+<div class="post-options">
+    <i class="fas fa-ellipsis-h"></i>
+    <div class="d-none">
+        <% if post.shared_from_id.nil? %>
+            <a class="row flex-center" href="<%= edit_post_path(post.id) %>">
+                <i class="far fa-edit"></i>
+                <p>Edit</p>
+            </a>
+        <% end %>
+        <a class="row flex-center" href="<%= post_path(post.id) %>" data-confirm="Delete this post?" data-method="delete">
+            <i class="far fa-trash-alt"></i>
+            <p>Delete</p>
+        </a>
+    </div>
+</div>
