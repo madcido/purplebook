@@ -1,24 +1,32 @@
-<div class="post-footer row space-between">
+<div class="post-lists row space-between">
     <div class="left-list">
-        <%= render "post_footer_list", collection: post.likers, type: "Like" %>
+        <%= render "post_lists", collection: post.likers, type: "Like" %>
     </div>
     <div class="row">
         <div class="right-list">
-            <%= render "post_footer_list", collection: post.commenters, type: "Comment" %>
+            <%= render "post_lists", collection: post.commenters, type: "Comment" %>
         </div>
         <div class="right-list">
-            <%= render "post_footer_list", collection: post.sharers, type: "Share" %>
+            <%= render "post_lists", collection: post.sharers, type: "Share" %>
         </div>
     </div>
 </div>
-<div class="post-buttons row space-around">
-    <div class="post-btn">
-        <%= render "footer_button", post: post, collection: post.likers, link: "like" %>
+<div class="post-actions row">
+    <div>
+        <%= render "post_action", post: post, collection: post.likers, link: "like" %>
     </div>
-    <div class="post-btn">
-        <!-- implement comments here -->
-        <%= render "comments/button" %>
-    </div><div class="post-btn">
-        <%= render "footer_button", post: post, collection: post.sharers, link: "share" %>
+    <div>
+        <label for="comment-show-<%= post.id %>" class="i-container row flex-center center">
+            <i class="far fa-comment-alt"></i>
+            <p>Comment</p>
+        </label>
     </div>
+    <div>
+        <%= render "post_action", post: post, collection: post.sharers, link: "share" %>
+    </div>
+</div>
+<input id="comment-show-<%= post.id %>" class="d-none" type="checkbox">
+<div class="post-comments d-none">
+    <%= render "comments/new", post: post%>
+    <%= render @comments.where(post_id: post.id) %>
 </div>

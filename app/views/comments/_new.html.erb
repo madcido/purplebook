@@ -1,0 +1,9 @@
+<div class="new-comment row">
+    <!-- implement gravatar here -->
+    <%= image_tag "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt/999/UP0151-CUSA09971_00-AV00000000000002/1553247440000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000", class: "comment-avatar" %>
+    <%= form_for @new_comment do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.text_field :content, placeholder: "Write a comment...", class: "comment-field" %>
+        <%= f.submit "Comment", class: "comment-btn d-none" %>
+    <% end %>
+</div>

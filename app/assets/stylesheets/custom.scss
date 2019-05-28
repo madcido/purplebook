@@ -165,8 +165,10 @@
     .post-image {
         width: 100%;
     }
-    .post-footer {
-        margin: 10px;
+    .post-lists {
+        margin: 0 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(200, 200, 200, 0.8);
         .left-list,
         .right-list {
             position: relative;
@@ -216,30 +218,131 @@
             display: block;
         }
     }
-    .post-buttons {
+    .post-actions {
         margin: 0 10px;
-        border-top: 1px solid rgba(200, 200, 200, 0.8);
-        .post-btn {
+        > div {
             flex: 1;
+        }
+        .i-container {
             text-align: center;
             margin: 5px 0;
-            .i-container {
-                width: 100%;
-                color: rgb(128, 128, 128);
-                font-size: 14px;
-                font-weight: bold;
-                cursor: pointer;
-                i {
-                    font-size: 16px;
-                    margin: 8px;
-                }
-            }
-            .un- {
-                color: purple;
+            width: 100%;
+            color: gray;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            i {
+                font-size: 16px;
+                margin: 8px;
             }
         }
-        .post-btn:hover {
+        .i-container:hover {
             background-color: rgba(200, 200, 200, 0.2);
+        }
+        .un- {
+            color: purple;
+        }  
+    }  
+    [type=checkbox]:checked + div {
+        display: block;
+    }
+    .post-comments {
+        margin: 10px;
+        .comment-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .new-comment form {
+            display: flex;
+            margin-left: 10px;
+            border: 1px solid rgba(200, 200, 200, 1);
+            border-radius: 15px;
+            width: 100%;
+        }
+        input {
+            padding: 0 10px;
+            line-height: 30px;
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            background-color: rgba(200, 200, 200, 0.25);
+        }
+        .comment-field:focus + .comment-btn {
+            display: block;
+        }
+        .comment-btn {
+            background-color: rgb(128, 40, 128);
+            border-radius: 0 30px 30px 0;
+            width: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .comment-btn:hover {
+            background-color: purple;
+            display: block;
+        }
+        .comment-tile {
+            margin-top: 10px;
+            > div {
+                margin-left: 10px;
+                width: 100%;
+                > div {
+                    position: relative;
+                    > p {
+                        padding: 8px 12px;
+                        font-size: 14px;
+                        border: none;
+                        border-radius: 15px;
+                        background-color: rgba(200, 200, 200, 0.25);
+                        > a {
+                            color: purple;
+                            font-weight: bold;
+                        }
+                        > a:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    > div {
+                        position: absolute;
+                        right: -2px;
+                        bottom: -7px;
+                        font-size: 11px;
+                        line-height: 15px;
+                        padding: 0 4px;
+                        background-color: white;
+                        border-radius: 6px;
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                        color: gray;
+                        > i {
+                            color: purple;
+                            margin-right: 2px;
+                        }
+                    }
+                }
+            }
+            ul{
+                margin-left: 12px;
+                margin-top: 4px;
+            }
+            li {
+                display: inline-block;
+                font-size: 12px;
+                color: gray;
+            }
+            li:not(:first-child):before {
+                content:" · ";
+            }
+            .comment-option {
+                color: purple;
+                cursor: pointer;
+            }
+            .comment-option:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

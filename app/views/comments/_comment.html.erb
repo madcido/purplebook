@@ -1,0 +1,27 @@
+<div class="comment-tile row flex-start">
+    <!-- implement gravatar here -->
+    <%= image_tag "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt/999/UP0151-CUSA09971_00-AV00000000000002/1553247440000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000", class: "comment-avatar" %>
+    <div class="col flex-start">
+        <div>
+            <!-- implemente comment user name here -->
+            <p><%= link_to comment.user.email, comment.user %> <%= comment.content %></p>
+            <% if (count = comment.likes.count) > 0 %>
+                <div class="row flex-center">
+                    <i class="far fa-thumbs-up"></i>
+                    <p><%= count %></p>
+                </div>
+            <% end %>
+        </div>
+        <ul>
+            <% if comment.likers.include?(current_user) %>
+                <li><%= render "comments/unlike", comment: comment %></li>
+            <% else %>
+                <li><%= render "comments/like", comment: comment %></li>
+            <% end %>
+            <% if comment.user == current_user %>
+                <li><%= link_to "Delete", comment_path(comment.id), method: "delete", data: { confirm: "Delete comment?" }, class: "comment-option" %></li>
+            <% end %>
+            <li><%= comment.created_at.strftime("%B %d at %I:%M %p") %></li>
+        </ul>
+    </div>
+</div>

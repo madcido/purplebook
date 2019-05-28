@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     before_action { redirect_to new_user_session_path unless current_user }
     before_action :get_post, only: [:show, :edit, :update]
-    before_action :get_empty_forms, only: [:index, :show]
+    before_action :get_objects, only: [:index, :show]
 
     def index
         @posts = Post.all.includes(:comments).includes(:likers)
@@ -60,10 +60,11 @@ class PostsController < ApplicationController
         @post = Post.find_by(id: params[:id])
     end
 
-    def get_empty_forms
+    def get_objects
         @new_post = Post.new()
         @new_like = Like.new()
         @new_comment = Comment.new()
+        @comments = Comment.all
     end
 
     def attached_file?

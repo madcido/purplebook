@@ -2,9 +2,9 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :liked_id, value: post.id %>
     <%= f.hidden_field :liked_type, value: "Post" %>
-    <label for="like-<%= post.id %>" class="i-container row flex-center center">
+    <%= f.label "Like", for: "post-like-#{post.id}", class: "i-container row flex-center center" do %>
         <i class="far fa-thumbs-up"></i>
         <p>Like</p>
-        <%= f.submit "Like", id: "like-#{post.id}", class: "d-none" %>
-    </label>
+    <% end %>
+    <%= f.submit "Like", id: "post-like-#{post.id}", class: "d-none" %>
 <% end %>

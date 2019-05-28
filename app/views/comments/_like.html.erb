@@ -1,0 +1,7 @@
+<%= form_for @new_like do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :liked_id, value: comment.id %>
+    <%= f.hidden_field :liked_type, value: "Comment" %>
+    <%= f.label "Like", for: "comment-like-#{comment.id}", class: "comment-option" %>
+    <%= f.submit "Like", id: "comment-like-#{comment.id}", class: "d-none" %>
+<% end %>
