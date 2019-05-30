@@ -12,11 +12,10 @@ class PostsController < ApplicationController
         if @post.save
             attach_file
             flash[:success] = "Post created"
-            redirect_to root_path
         else
             flash[:error] = "Post can't be blank"
-            redirect_to root_path
         end
+        redirect_to root_path
     end
 
     def show; end
@@ -48,23 +47,16 @@ class PostsController < ApplicationController
         params.require(:post).permit(:content, :shared_from_id)
     end
 
+    def get_post
+        @post = Post.find_by(id: params[:id])
+    end
+
     def attach_file
         if params[:post][:share]
             @post.image.attach(Post.find_by(id: params[:post][:share]).image.blob)
         else
             @post.image.attach(params[:post][:image]) unless params[:post][:image].nil?
         end
-    end
-
-    def get_post
-        @post = Post.find_by(id: params[:id])
-    end
-
-    def get_objects
-        @new_post = Post.new()
-        @new_like = Like.new()
-        @new_comment = Comment.new()
-        @comments = Comment.all
     end
 
     def attached_file?

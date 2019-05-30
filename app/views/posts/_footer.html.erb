@@ -1,19 +1,19 @@
 <div class="post-lists row space-between">
-    <div class="left-list">
-        <%= render "post_lists", collection: post.likers, type: "Like" %>
+    <div class="p-rel left-list">
+        <%= render "posts/lists", collection: post.likers, type: "Like" %>
     </div>
     <div class="row">
-        <div class="right-list">
-            <%= render "post_lists", collection: post.commenters, type: "Comment" %>
+        <div class="p-rel right-list">
+            <%= render "posts/lists", collection: post.commenters, type: "Comment" %>
         </div>
-        <div class="right-list">
-            <%= render "post_lists", collection: post.sharers, type: "Share" %>
+        <div class="p-rel right-list">
+            <%= render "posts/lists", collection: post.sharers, type: "Share" %>
         </div>
     </div>
 </div>
 <div class="post-actions row">
     <div>
-        <%= render "post_action", post: post, collection: post.likers, link: "like" %>
+        <%= render "shared/action", resource: post, collection: post.likers, action: "like" %>
     </div>
     <div>
         <label for="comment-show-<%= post.id %>" class="i-container row flex-center center">
@@ -22,7 +22,7 @@
         </label>
     </div>
     <div>
-        <%= render "post_action", post: post, collection: post.sharers, link: "share" %>
+        <%= render "shared/action", resource: post, collection: post.sharers, action: "share" %>
     </div>
 </div>
 <input id="comment-show-<%= post.id %>" class="d-none" type="checkbox">

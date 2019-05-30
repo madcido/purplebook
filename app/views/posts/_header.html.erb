@@ -1,6 +1,6 @@
 <div class="post-header row space-between flex-start">
-    <%= render "post_info", post: post %>
+    <%= render "posts/info", post: post %>
     <% if current_user == post.user %>
-        <%= render "post_options", post: post %>
+        <%= render "posts/options", post: post %>
     <% end %>
 </div>

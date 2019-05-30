@@ -1,0 +1,43 @@
+.main-box {
+    padding-top: 70px;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.field_with_errors label{
+    color: red;
+}
+
+.d-none {
+    display: none;
+}
+
+.p-rel {
+    position: relative;
+}
+
+.btn-style {
+    box-shadow: 0 0 1px black;
+    background-color: rgb(128, 40, 128);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 3px;
+    transition: 0.3s;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn-style:hover {
+    background-color: purple;
+}
+

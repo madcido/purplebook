@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
+    before_action { redirect_to new_user_session_path unless current_user }
 
     def create
         @comment = current_user.comments.build(comment_params)
         if @comment.save
             flash[:success] = "Comment created"
-            redirect_to request.referrer
         else
             flash[:error] = "Comment can't be blank"
-            redirect_to request.referrer
         end
+        redirect_to request.referrer
     end
 
     def destroy

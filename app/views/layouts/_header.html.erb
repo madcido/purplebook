@@ -2,6 +2,7 @@
     <%= link_to "PurpleBook", root_path %>
     <div class="row">
         <% if current_user %>
+            <%= link_to "Users", users_path %>
             <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
         <% else %>
             <%= link_to "Sign Up", new_user_registration_path %>

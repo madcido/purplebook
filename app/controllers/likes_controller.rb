@@ -1,14 +1,14 @@
 class LikesController < ApplicationController
+    before_action { redirect_to new_user_session_path unless current_user }
 
     def create
         @like = Like.new(like_params)
         if @like.save
             flash[:success] = "Like added"
-            redirect_to request.referrer
         else
             flash[:error] = "Like failed"
-            redirect_to request.referrer
         end
+        redirect_to request.referrer
     end
 
     def destroy

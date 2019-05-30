@@ -1,29 +1,9 @@
 .main-feed {
-    padding-top: 70px;
-    max-width: 600px;
-    min-height: 100vh;
+    max-width: 500px;
     margin: 0 auto;
-}
-
-.field_with_errors {
-    display: inline;
-}
-
-.field_with_errors label{
-    color: red;
-}
-
-.centered {
-    width: 500px;
-    margin: 0 auto;
-}
-
-.d-none {
-    display: none;
 }
 
 .new-post {
-    position: relative;
     border: 1px solid rgba(200, 200, 200, 0.8);
     border-radius: 5px;
     background-color: white;
@@ -74,24 +54,6 @@
     .post-form-submit {
         width: 100%;
     }
-    .btn-style {
-        box-shadow: 0 0 1px black;
-        background-color: rgb(128, 40, 128);
-        color: white;
-        font-weight: bold;
-        font-size: 12px;
-        text-align: center;
-        height: 30px;
-        line-height: 30px;
-        border: none;
-        border-radius: 3px;
-        transition: 0.3s;
-        z-index: 1;
-        cursor: pointer;
-    }
-    .btn-style:hover {
-        background-color: purple;
-    }
     textarea:focus ~ .post-form-btns, 
     input:focus ~ .post-form-btns, 
     .post-form-btns:hover {
@@ -130,7 +92,7 @@
         margin: 10px;
         color: gray;
         text-align: right;
-    }
+    }    
     .post-options:hover {
         color: black;
         width: 100px;
@@ -169,10 +131,6 @@
         margin: 0 10px;
         padding: 10px 0;
         border-bottom: 1px solid rgba(200, 200, 200, 0.8);
-        .left-list,
-        .right-list {
-            position: relative;
-        }
         .left-list ul {
             left: 0;
         }
@@ -207,6 +165,7 @@
             list-style: none;
             font-size: 12px;
             padding: 5px;
+            white-space: nowrap;
             li {
                 margin-bottom: 3px;
             }
@@ -234,6 +193,9 @@
             i {
                 font-size: 16px;
                 margin: 8px;
+            }
+            p {
+                margin-right: 8px;
             }
         }
         .i-container:hover {
@@ -290,38 +252,35 @@
             > div {
                 margin-left: 10px;
                 width: 100%;
-                > div {
-                    position: relative;
-                    > p {
-                        padding: 8px 12px;
-                        font-size: 14px;
-                        border: none;
-                        border-radius: 15px;
-                        background-color: rgba(200, 200, 200, 0.25);
-                        > a {
-                            color: purple;
-                            font-weight: bold;
-                        }
-                        > a:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                    > div {
-                        position: absolute;
-                        right: -2px;
-                        bottom: -7px;
-                        font-size: 11px;
-                        line-height: 15px;
-                        padding: 0 4px;
-                        background-color: white;
-                        border-radius: 6px;
-                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-                        color: gray;
-                        > i {
-                            color: purple;
-                            margin-right: 2px;
-                        }
-                    }
+            }
+            .comment-content {
+                padding: 8px 12px;
+                font-size: 14px;
+                border: none;
+                border-radius: 15px;
+                background-color: rgba(200, 200, 200, 0.25);
+                > a {
+                    color: purple;
+                    font-weight: bold;
+                }
+                > a:hover {
+                    text-decoration: underline;
+                }
+            }
+            .comment-likes {
+                position: absolute;
+                right: -2px;
+                bottom: -7px;
+                font-size: 11px;
+                line-height: 15px;
+                padding: 0 4px;
+                background-color: white;
+                border-radius: 6px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                color: gray;
+                > i {
+                    color: purple;
+                    margin-right: 2px;
                 }
             }
             ul{

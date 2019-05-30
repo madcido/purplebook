@@ -1,0 +1,10 @@
+<%= form_for @new_like do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :liked_id, value: resource.id %>
+    <%= f.hidden_field :liked_type, value: "Post" %>
+    <%= f.label "Like", for: "post-like-#{resource.id}", class: "i-container row flex-center center" do %>
+        <i class="far fa-thumbs-up"></i>
+        <p>Like</p>
+    <% end %>
+    <%= f.submit "Like", id: "post-like-#{resource.id}", class: "d-none" %>
+<% end %>

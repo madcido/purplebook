@@ -1,8 +1,8 @@
 <div class="post-tile">
-    <%= render "post_header", post: post %>
+    <%= render "posts/header", post: post %>
     <p class="post-content"><%= post.content %></p>
     <% if post.image.attached? %>
         <%= link_to image_tag(url_for(post.image), alt: "post image", class: "post-image"), post %>
     <% end %>
-    <%= render "post_footer", post: post %>
+    <%= render "posts/footer", post: post %>
 </div>

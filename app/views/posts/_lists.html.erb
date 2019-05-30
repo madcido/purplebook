@@ -2,7 +2,7 @@
 <% if count > 0 %>
     <ul class="d-none">
         <% collection.distinct.each do |user| %>
-            <li><%= link_to user.email, user %></li>
+            <li><%= link_to contained(user.display_name), user %></li>
         <% end %>
     </ul>
 <% end %>

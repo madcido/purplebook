@@ -1,0 +1,5 @@
+<% if collection.include?(current_user) %>
+    <%= render "shared/un#{action}", resource: resource %>
+<% else %>
+    <%= render "shared/#{action}", resource: resource %>
+<% end %>
