@@ -24,7 +24,10 @@
     .post-form-content {
         box-sizing: border-box;
         width: 100%;
+        height: 60px;
+        border: none;
         padding: 10px;
+        resize: vertical;
         font-family: Arial, Helvetica, sans-serif;
     }
     .post-form-image {
@@ -205,7 +208,7 @@
             color: purple;
         }  
     }  
-    [type=checkbox]:checked + div {
+    .show-comments:checked + div {
         display: block;
     }
     .post-comments {
@@ -222,7 +225,7 @@
             border-radius: 15px;
             width: 100%;
         }
-        input {
+        .comment-field {
             padding: 0 10px;
             line-height: 30px;
             width: 100%;
@@ -230,21 +233,17 @@
             border-radius: 15px;
             background-color: rgba(200, 200, 200, 0.25);
         }
-        .comment-field:focus + .comment-btn {
-            display: block;
+        .comment-field:focus {
+            border-radius: 15px 0 0 15px;
+            + .comment-btn {
+                display: block;
+            }
         }
         .comment-btn {
-            background-color: rgb(128, 40, 128);
-            border-radius: 0 30px 30px 0;
+            border-radius: 0 15px 15px 0;
             width: 150px;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            text-align: center;
-            cursor: pointer;
         }
         .comment-btn:hover {
-            background-color: purple;
             display: block;
         }
         .comment-tile {

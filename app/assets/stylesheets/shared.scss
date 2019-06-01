@@ -1,7 +1,6 @@
 .main-box {
     padding-top: 70px;
     max-width: 600px;
-    min-height: 100vh;
     margin: 0 auto;
 }
 
@@ -15,6 +14,10 @@
 
 .d-none {
     display: none;
+}
+
+.d-block {
+    display: block;
 }
 
 .p-rel {

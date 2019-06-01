@@ -4,6 +4,6 @@
     <%= form_for @new_comment do |f| %>
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.text_field :content, placeholder: "Write a comment...", class: "comment-field" %>
-        <%= f.submit "Comment", class: "comment-btn d-none" %>
+        <%= f.submit "Comment", class: "comment-btn btn-style d-none" %>
     <% end %>
 </div>

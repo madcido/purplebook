@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
+        # problem with attaching file here, possibility to create empty post
         if @post.save
             attach_file
             flash[:success] = "Post created"

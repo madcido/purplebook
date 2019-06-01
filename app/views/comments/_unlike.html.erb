@@ -1,1 +1,1 @@
-<b><%= link_to "Like", like_path(comment.likes.find_by(user_id: current_user.id)), method: "delete", class: "comment-option"%></b>
+<b><%= link_to "Like", like_path(resource.likes.find_by(user_id: current_user.id)), method: "delete", class: "comment-option"%></b>

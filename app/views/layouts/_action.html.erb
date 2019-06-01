@@ -1,0 +1,5 @@
+<% if collection.include?(current_user.id) %>
+    <%= render "#{type}s/un#{action}", resource: resource %>
+<% else %>
+    <%= render "#{type}s/#{action}", resource: resource %>
+<% end %>
