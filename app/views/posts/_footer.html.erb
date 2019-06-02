@@ -1,13 +1,13 @@
 <div class="post-lists row space-between">
-    <div class="p-rel left-list">
-        <%= render "posts/lists", collection: post.likers, type: "Like" %>
+    <div class="mini-list left-list">
+        <%= render "layouts/list", collection: post.likers, type: "Like" %>
     </div>
     <div class="row">
-        <div class="p-rel right-list">
-            <%= render "posts/lists", collection: post.commenters, type: "Comment" %>
+        <div class="mini-list right-list">
+            <%= render "layouts/list", collection: post.commenters, type: "Comment" %>
         </div>
-        <div class="p-rel right-list">
-            <%= render "posts/lists", collection: post.sharers, type: "Share" %>
+        <div class="mini-list right-list">
+            <%= render "layouts/list", collection: post.sharers, type: "Share" %>
         </div>
     </div>
 </div>

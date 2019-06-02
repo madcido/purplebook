@@ -9,9 +9,8 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
-        # problem with attaching file here, possibility to create empty post
+        attach_shared_file if params[:post][:share]
         if @post.save
-            attach_file
             flash[:success] = "Post created"
         else
             flash[:error] = "Post can't be blank"
@@ -24,12 +23,11 @@ class PostsController < ApplicationController
     def edit; end
 
     def update
-        if attached_file? || keep_file?
+        if (attached_file? || keep_file?) && @post.update(post_params)
             flash[:success] = "Post updated"
         elsif present_content?
             @post.image.purge if params[:post][:purge] == "purge"
-            @post.update(content: params[:post][:content])
-            flash[:success] = "Post updated"
+            flash[:success] = "Post updated" if @post.update(post_params)
         else
             flash[:error] = "Post can't be blank"
         end
@@ -39,37 +37,33 @@ class PostsController < ApplicationController
     def destroy
         Post.find_by(id: params[:id]).destroy
         flash[:success] = "Post deleted"
-        redirect_to root_path
+        redirect_to request.referrer
     end
 
     private
 
     def post_params
-        params.require(:post).permit(:content, :shared_from_id)
+        params.require(:post).permit(:content, :image, :shared_from_id)
     end
 
     def get_post
         @post = Post.find_by(id: params[:id])
     end
 
-    def attach_file
-        if params[:post][:share]
-            @post.image.attach(Post.find_by(id: params[:post][:share]).image.blob)
-        else
-            @post.image.attach(params[:post][:image]) unless params[:post][:image].nil?
-        end
+    def attach_shared_file
+        @post.image.attach(Post.find_by(id: params[:post][:share]).image.blob)
     end
 
     def attached_file?
-        params[:post][:image] && @post.update(content: params[:post][:content], image: params[:post][:image])
+        params[:post][:image]
     end
 
     def keep_file?
-        params[:post][:purge] == "keep" && @post.update(content: params[:post][:content])
+        params[:post][:purge] == "keep"
     end
 
     def present_content?
-        params[:post][:content] != "" || @post.content != ""
+        params[:post][:content] != "" && @post.content != ""
     end
 
 end

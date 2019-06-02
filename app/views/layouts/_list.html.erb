@@ -1,8 +1,11 @@
 <p><%= pluralize count = collection.count, type %></p>
 <% if count > 0 %>
     <ul class="d-none">
-        <% collection.distinct.each do |user| %>
+        <% collection.distinct.limit(9).each do |user| %>
             <li><%= link_to contained(user.display_name), user %></li>
+        <% end %>
+        <% if (count = collection.distinct.count) > 9 %>
+            <li>and <%= count - 9 %> more...</li>
         <% end %>
     </ul>
 <% end %>

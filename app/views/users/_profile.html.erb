@@ -1,0 +1,18 @@
+<div class="tile user-info col flex-center">
+    <%= image_tag gravatar_url(@user.email), alt: "user avatar", class: "user-avatar"%>
+    <div class="user-name">
+        <p><%= @user.name %></p>
+    </div>
+    <div class="user-email">
+        <p><%= @user.email %></p>
+    </div>
+    <div class="user-bio">
+        <p><%= @user.bio %></p>
+    </div>
+    <label for="content-switch" class="friends-label user-btn btn-style"><%= first_name(@user.name) %>'s Friends</label>
+    <label for="content-switch" class="posts-label user-btn btn-style d-none"><%= first_name(@user.name) %>'s Posts</label>
+    <p class="fr-msg"><%= friendship_action(find_friendship(@user)) %></p>
+    <div class="row user-btn gambiarra2 -hrz">
+        <%= render "layouts/action", type: "user", action: "friend", resource: @user, collection: @user.friends.pluck(:id) %>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<input id="content-switch" type="checkbox" class="d-none">
+<% if @user == current_user %>
+    <%= render "users/edit_form" %>
+<% else %>
+    <%= render "users/profile" %>
+<% end %>
+<div class="user-content">
+    <%= render "layouts/flash" %>
+    <div class="user-posts">
+        <%= render @user.posts %>
+    </div>
+    <div class="user-friends d-none">
+        <%= render @user.friends %>
+    </div>
+</div>
+
+<br>

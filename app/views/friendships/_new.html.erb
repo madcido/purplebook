@@ -1,0 +1,5 @@
+<%= form_for @new_friend do |f| %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+    <%= f.hidden_field :receiver_id, value: resource.id %>
+    <%= f.submit "Add Friend", class: "btn-style"%>
+<% end %>
