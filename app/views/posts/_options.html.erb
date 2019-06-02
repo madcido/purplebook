@@ -7,7 +7,7 @@
                 <p>Edit</p>
             <% end %>
         <% end %>
-        <%= link_to post_path(post.id), method: "delete", data: { confirm: "Delete post?" }, class: "row flex-center" do %>
+        <%= link_to post, method: "delete", data: { confirm: "Delete post?" }, class: "row flex-center" do %>
             <i class="far fa-trash-alt"></i>
             <p>Delete</p>
         <% end %>

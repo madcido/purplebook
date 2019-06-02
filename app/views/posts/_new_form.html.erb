@@ -1,7 +1,7 @@
 <%= form_for @new_post do |f| %>
     <div class="tile post-form">
         <%= f.label :content, "Create Post", class: "post-form-label"%>
-        <%= f.text_area :content, placeholder: "What's on your mind, #{contained(current_user.display_name)}?", class: "post-form-content" %>
+        <%= f.text_area :content, placeholder: "What's on your mind, #{first_name(contained(current_user.display_name))}?", class: "post-form-content" %>
         <%= f.label :image, "Attach...", class: "gambiarra btn-style" %>
         <%= f.file_field :image, class: "post-form-image" %>
         <div class="post-form-btns d-none">

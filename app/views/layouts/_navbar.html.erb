@@ -1,0 +1,38 @@
+<nav class="navbar row space-around">
+    <%= link_to image_tag("white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-g" %>
+    <%= link_to image_tag("mini-white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-p d-none" %>
+    <!-- search bar here -->
+    <div class="row flex-center">
+        <% if current_user %>
+            <%= link_to current_user, class: "row flex-center nav-avatar" do %>
+                <!-- <p class="p-hover d-none">Profile</p> -->
+                <%= image_tag gravatar_url(current_user.email), alt: "user gratavar" %>
+                <p><%= first_name(current_user.name) %></p>
+            <% end %>
+            <%= link_to root_path do %>
+                <!-- <p class="p-hover d-none">Home</p> -->
+                <i class="fas fa-home"></i>
+            <% end %>
+            <%= link_to users_path do %>
+                <!-- <p class="p-hover d-none">Users</p> -->
+                <i class="fas fa-users"></i>
+            <% end %>
+            <%= link_to "#" do %>
+                <!-- <p class="p-hover d-none">Friend Requests</p> -->
+                <% if (count = current_user.received_requests.pending.count) > 0 %>
+                    <i class="fas fa-bell"></i>
+                    <p class="notifications"><%= count %></p>
+                <% else %>
+                    <i class="far fa-bell"></i>
+                <% end %>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+                <!-- <p class="p-hover d-none">Log Out</p> -->
+                <i class="fas fa-sign-out-alt"></i>
+            <% end %>
+        <% else %>
+            <%= link_to "Sign Up", new_user_registration_path %>
+            <%= link_to "Log In", new_user_session_path %>
+        <% end %>
+    </div>
+</nav>

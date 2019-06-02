@@ -12,9 +12,9 @@
             <% end %>
         </div>
         <ul>
-            <li><%= render "layouts/action", type: "comment", action: "like", resource: comment, collection: comment.likers.pluck(:id) %></li>
+            <li><%= render "layouts/action", action: "like", resource: comment, collection: comment.likers.ids %></li>
             <% if comment.user == current_user %>
-                <li><%= link_to "Delete", comment_path(comment.id), method: "delete", data: { confirm: "Delete comment?" }, class: "comment-option" %></li>
+                <li><%= link_to "Delete", comment, method: "delete", data: { confirm: "Delete comment?" }, class: "comment-option" %></li>
             <% end %>
             <!-- implement time difference here -->
             <li><%= comment.created_at.strftime("%B %d at %I:%M %p") %></li>

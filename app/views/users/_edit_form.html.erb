@@ -18,6 +18,6 @@
     <label for="edit-mode" class="user-btn btn-style">Edit Profile</label>
     <div class="col">
         <%= f.submit "Save Changes", class: "user-btn btn-style d-none" %>
-        <%= link_to "Delete Profile", user_registration_path, method: "delete", class: "user-btn btn-style d-none", data: { confirm: "Are you sure? Your profile and posts will be lost forever!" }%>
+        <%= link_to "Delete Account", user_registration_path, method: "delete", class: "user-btn btn-style d-none", data: { confirm: "Are you sure? Your profile and posts will be lost forever!" }%>
     </div>
 <% end %>

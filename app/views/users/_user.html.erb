@@ -9,6 +9,6 @@
         </div>
     </div>
     <div class="users-index-btns col gambiarra2 -vtc">
-        <%= render "layouts/action", type: "user", action: "friend", resource: user, collection: user.friends.pluck(:id) %>
+        <%= render "layouts/action", action: "friend", resource: user, collection: user.friends.ids %>
     </div>
 </div>

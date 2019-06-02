@@ -13,7 +13,7 @@
 </div>
 <div class="post-actions row">
     <div>
-        <%= render "layouts/action", type: "post", action: "like", resource: post, collection: post.likers.pluck(:id) %>
+        <%= render "layouts/action", action: "like", resource: post, collection: post.likers.ids %>
     </div>
     <div>
         <label for="comment-show-<%= post.id %>" class="i-container row flex-center center">
@@ -22,11 +22,11 @@
         </label>
     </div>
     <div>
-        <%= render "layouts/action", type: "post", action: "share", resource: post, collection: post.sharers.pluck(:id) %>
+        <%= render "layouts/action", action: "share", resource: post, collection: post.sharers.ids %>
     </div>
 </div>
 <input id="comment-show-<%= post.id %>" class="show-comments d-none" type="checkbox">
 <div class="post-comments d-none">
     <%= render "comments/new", post: post%>
-    <%= render @comments.where(post_id: post.id) %>
+    <%= render post.comments %>
 </div>

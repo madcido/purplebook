@@ -19,10 +19,6 @@ class User < ApplicationRecord
     self.name.empty? || self.name.nil? ? self.email : self.name
   end
 
-  def pending_requests
-    self.sent_requests.pending.or(self.received_requests.pending)
-  end
-
   def friends
     User.where(id: self.sent_requests.accepted.pluck(:receiver_id)).or(User.where(id: self.received_requests.accepted.pluck(:sender_id)))
   end
