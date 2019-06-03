@@ -1,6 +1,12 @@
-<h1>Find People</h1>
+<%= render "layouts/flash" %>
 <div class="main-feed">
+    <%= form_tag users_path, method: "get", class: "tile users-index-search row" do %>
+        <%= text_field_tag :search, params[:search], class: "search-field", placeholder: "Find your Friends" %>
+        <%= submit_tag "Search", name: nil, class: "search-btn" %>
+    <% end %>
+    <%= will_paginate @users %>
     <%= render @users %>
+    <%= will_paginate @users %>
 </div>
 
 <br>

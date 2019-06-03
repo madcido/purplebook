@@ -4,7 +4,11 @@ class UsersController < ApplicationController
     before_action :get_objects, only: [:show]
 
     def index
-        @users = User.where.not(id: current_user.id).all
+        if params[:search]
+            @users = User.where("lower(name) LIKE ?", "%#{params[:search].downcase}%").all.paginate(page: params[:page], per_page: 10)
+        else
+            @users = User.all.paginate(page: params[:page], per_page: 10)
+        end
         @new_friend = Friendship.new()
     end
 

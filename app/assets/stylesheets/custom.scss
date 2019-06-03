@@ -113,3 +113,20 @@
     width: inherit;
     height: inherit;
 }
+
+.pagination {
+    text-align: center;
+    font-size: 15px;
+    .previous_page {
+        margin-right: 10px;
+    }
+    .next_page {
+        margin-left: 10px;
+    }
+    .current {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: bold;
+        margin: 0 5px;
+    }
+}

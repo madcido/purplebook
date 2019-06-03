@@ -1,0 +1,16 @@
+<label for="notification-switch" class="nav-item">
+    <% if (count = current_user.received_requests.pending.count) > 0 %>
+        <i class="fas fa-bell"></i>
+        <p class="notification-counter"><%= count %></p>
+    <% else %>
+        <i class="far fa-bell"></i>
+    <% end %>
+    <input id="notification-switch" type="checkbox" class="d-none">
+    <div class="notifications d-none">
+        <% if count > 0 %>
+            <%= render current_user.pending_requests %>
+        <% else %>
+            <p class="no-">No new notifications</p>
+        <% end %>
+    </div>
+</label>

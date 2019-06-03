@@ -1,38 +1,36 @@
-<nav class="navbar row space-around">
-    <%= link_to image_tag("white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-g" %>
-    <%= link_to image_tag("mini-white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-p d-none" %>
-    <!-- search bar here -->
-    <div class="row flex-center">
+<nav class="navbar">
+    <div class="row flex-center space-between nav-container">
+        <%= link_to image_tag("white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-g nav-item" %>
+        <%= link_to image_tag("mini-white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-p nav-item d-none" %>
         <% if current_user %>
-            <%= link_to current_user, class: "row flex-center nav-avatar" do %>
-                <!-- <p class="p-hover d-none">Profile</p> -->
-                <%= image_tag gravatar_url(current_user.email), alt: "user gratavar" %>
-                <p><%= first_name(current_user.name) %></p>
-            <% end %>
-            <%= link_to root_path do %>
-                <!-- <p class="p-hover d-none">Home</p> -->
-                <i class="fas fa-home"></i>
-            <% end %>
-            <%= link_to users_path do %>
-                <!-- <p class="p-hover d-none">Users</p> -->
-                <i class="fas fa-users"></i>
-            <% end %>
-            <%= link_to "#" do %>
-                <!-- <p class="p-hover d-none">Friend Requests</p> -->
-                <% if (count = current_user.received_requests.pending.count) > 0 %>
-                    <i class="fas fa-bell"></i>
-                    <p class="notifications"><%= count %></p>
-                <% else %>
-                    <i class="far fa-bell"></i>
+            <%= form_tag users_path, method: "get" do %>
+                <%= label_tag :search, class: "nav-search row" do %>
+                    <i class="fas fa-search"></i>
+                    <%= text_field_tag :search, "", class: "search-field", autocomplete: "off" %>
+                    <%= submit_tag "Go", name: nil, class: "search-btn" %>
                 <% end %>
             <% end %>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-                <!-- <p class="p-hover d-none">Log Out</p> -->
-                <i class="fas fa-sign-out-alt"></i>
-            <% end %>
+            <div class="row flex-center">
+                <%= link_to current_user, class: "row flex-center nav-avatar nav-item" do %>
+                    <%= image_tag gravatar_url(current_user.email), alt: "user gratavar" %>
+                    <p><%= first_name(current_user.name) %></p>
+                <% end %>
+                <%= link_to root_path, class: "nav-item" do %>
+                    <i class="fas fa-home"></i>
+                <% end %>
+                <%= link_to users_path, class: "nav-item" do %>
+                    <i class="fas fa-users"></i>
+                <% end %>
+                <%= render "friendships/notifications" %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "nav-item" do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                <% end %>
+            </div>
         <% else %>
-            <%= link_to "Sign Up", new_user_registration_path %>
-            <%= link_to "Log In", new_user_session_path %>
+            <div class="row flex-center">
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-item" %>
+                <%= link_to "Log In", new_user_session_path, class: "nav-item" %>
+            </div>
         <% end %>
     </div>
 </nav>

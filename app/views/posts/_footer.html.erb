@@ -16,7 +16,7 @@
         <%= render "layouts/action", action: "like", resource: post, collection: post.likers.ids %>
     </div>
     <div>
-        <label for="comment-show-<%= post.id %>" class="i-container row flex-center center">
+        <label for="comment-switch-<%= post.id %>" class="i-container row flex-center center">
             <i class="far fa-comment-alt"></i>
             <p>Comment</p>
         </label>
@@ -25,7 +25,7 @@
         <%= render "layouts/action", action: "share", resource: post, collection: post.sharers.ids %>
     </div>
 </div>
-<input id="comment-show-<%= post.id %>" class="show-comments d-none" type="checkbox">
+<input id="comment-switch-<%= post.id %>" type="checkbox" class="comment-switch d-none">
 <div class="post-comments d-none">
     <%= render "comments/new", post: post%>
     <%= render post.comments %>

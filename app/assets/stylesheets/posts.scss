@@ -49,11 +49,9 @@
     .post-form-submit {
         width: 100%;
     }
-    textarea:focus ~ .post-form-btns, 
-    input:focus ~ .post-form-btns, 
-    .post-form-btns:hover {
-        display: block;
-    }
+}
+.post-form:focus-within .post-form-btns {
+    display: block;
 }
 .post-avatar {
     width: 50px;
@@ -72,7 +70,7 @@
     color: gray;
     font-size: 12px;
 }
-.post-author:hover, 
+.post-author:hover,
 .post-date:hover {
     text-decoration: underline;
 }
@@ -81,7 +79,7 @@
     margin: 10px;
     color: gray;
     text-align: right;
-}    
+}
 .post-options:hover {
     color: black;
     width: 100px;
@@ -147,9 +145,9 @@
     }
     .un- {
         color: purple;
-    }  
-}  
-.show-comments:checked + div {
+    }
+}
+.comment-switch:checked + div {
     display: block;
 }
 .post-comments {
@@ -174,18 +172,17 @@
         border-radius: 15px;
         background-color: rgba(200, 200, 200, 0.25);
     }
-    .comment-field:focus {
-        border-radius: 15px 0 0 15px;
-        + .comment-btn {
-            display: block;
-        }
-    }
     .comment-btn {
         border-radius: 0 15px 15px 0;
         width: 150px;
     }
-    .comment-btn:hover {
-        display: block;
+    .new-comment:focus-within {
+        .comment-field {
+            border-radius: 15px 0 0 15px;
+        }
+        .comment-btn {
+            display: block;
+        }
     }
     .comment-tile {
         margin-top: 10px;

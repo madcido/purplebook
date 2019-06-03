@@ -1,14 +1,18 @@
 <div class="tile row flex-center space-between">
     <div class="row flex-center">
-        <%= image_tag gravatar_url(user.email), alt: "user avatar", class: "users-index-avatar" %>
-        <div class="users-index-info">
+        <%= image_tag gravatar_url(user.email), alt: "user avatar", class: "user-avatar" %>
+        <div class="user-info">
             <%= link_to contained(user.display_name), user %>
-            <div class="mini-list left-list">
-                <%= render "layouts/list", collection: user.friends.merge(current_user.friends), type: "mutual friend" %>
-            </div>
+            <% if user != current_user %>
+                <div class="mini-list left-list">
+                    <%= render "layouts/list", collection: user.friends.merge(current_user.friends), type: "mutual friend" %>
+                </div>
+            <% end %>
         </div>
     </div>
-    <div class="users-index-btns col gambiarra2 -vtc">
-        <%= render "layouts/action", action: "friend", resource: user, collection: user.friends.ids %>
-    </div>
+    <% if user != current_user %>
+        <div class="user-btns col gambiarra2 -vtc">
+            <%= render "layouts/action", action: "friend", resource: user, collection: user.friends.ids %>
+        </div>
+    <% end %>
 </div>

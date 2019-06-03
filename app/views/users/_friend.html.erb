@@ -1,6 +1,6 @@
 <% if friendship = find_friendship(resource) %>
     <% if friendship.sender == current_user %>
-        <%= render "users/unfriend", resource: resource, friendship: friendship, mode: "Cancel Request" %>
+        <%= render "users/unfriend", resource: resource, friendship: friendship, mode: "Cancel" %>
     <% else %>
         <%= render "friendships/update", resource: resource, friendship: friendship %>
         <%= render "users/unfriend", resource: resource, friendship: friendship, mode: "Decline" %>
