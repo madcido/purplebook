@@ -1,7 +1,12 @@
 class User < ApplicationRecord
+    extend FriendlyId
+    friendly_id :name, use: :slugged
+
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+
+    has_one_attached :avatar
 
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
@@ -16,10 +21,6 @@ class User < ApplicationRecord
     default_scope { order("name ASC") }
 
     validates :name, length: { maximum: 20 }
-
-    def display_name
-        self.name.empty? || self.name.nil? ? self.email : self.name
-    end
 
     def friends
         User.where(id: self.sent_requests.accepted.pluck(:receiver_id)).or(User.where(id: self.received_requests.accepted.pluck(:sender_id)))

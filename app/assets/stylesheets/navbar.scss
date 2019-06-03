@@ -71,13 +71,18 @@
     background-color: red;
     border-radius: 2px;
 }
-#notification-switch:checked + div {
-    display: block;
+#notification-switch:checked {
+    + label {
+        background-color: rgba(88, 0, 88, 0.5);
+    }
+    ~ div {
+        display: block;
+    }
 }
 .notifications {
     position: absolute;
     top: 30px;
-    right: -40px;
+    right: 0;
     max-height: 70vh;
     padding: 0 10px;
     background-color: rgba(200, 200, 200, 0.4);

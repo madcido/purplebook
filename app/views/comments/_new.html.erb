@@ -1,6 +1,5 @@
 <div class="new-comment row">
-    <!-- implement avatar here -->
-    <%= image_tag gravatar_url(current_user.email), alt: "user avatar", class: "comment-avatar" %>
+    <%= image_tag avatar_for(current_user), alt: "user avatar", class: "comment-avatar" %>
     <%= form_for @new_comment do |f| %>
         <%= f.hidden_field :post_id, value: post.id %>
         <%= f.text_field :content, placeholder: "Write a comment...", class: "comment-field" %>

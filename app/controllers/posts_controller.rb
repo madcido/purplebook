@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
-        attach_shared_file if params[:post][:share]
+        attach_shared_file if params[:shared]
         if @post.save
             flash[:success] = "Post created"
         else
@@ -23,11 +23,9 @@ class PostsController < ApplicationController
     def edit; end
 
     def update
-        if (attached_file? || keep_file?) && @post.update(post_params)
+        if update_has_content? && @post.update(post_params)
+            @post.image.purge if params[:purge]
             flash[:success] = "Post updated"
-        elsif present_content?
-            @post.image.purge if params[:post][:purge] == "purge"
-            flash[:success] = "Post updated" if @post.update(post_params)
         else
             flash[:error] = "Post can't be blank"
         end
@@ -51,19 +49,11 @@ class PostsController < ApplicationController
     end
 
     def attach_shared_file
-        @post.image.attach(Post.find_by(id: params[:post][:share]).image.blob)
+        @post.image.attach(Post.find_by(id: params[:shared]).image.blob)
     end
 
-    def attached_file?
-        params[:post][:image]
-    end
-
-    def keep_file?
-        params[:post][:purge] == "keep"
-    end
-
-    def present_content?
-        params[:post][:content] != "" && @post.content != ""
+    def update_has_content?
+        !(params[:purge] && params[:post][:content].empty?)
     end
 
 end

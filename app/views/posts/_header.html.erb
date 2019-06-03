@@ -1,12 +1,10 @@
 <div class="row space-between flex-start">
     <div class="row">
-        <!-- implement avatar here -->
-        <%= image_tag gravatar_url(post.user.email), alt: "user avatar", class: "post-avatar" %>
+        <%= image_tag avatar_for(post.user), alt: "user avatar", class: "post-avatar" %>
         <div class="post-info col flex-start space-evenly">
-            <%= link_to contained(post.user.display_name), post.user, class: "post-author" %>
+            <%= link_to display_name(post.user), post.user, class: "post-author" %>
             <div>
-                <!-- implement time difference here -->
-                <%= link_to post.created_at.strftime("%B %d at %I:%M %p"), post, class: "post-date" %>
+                <%= link_to display_time(post.created_at), post, class: "post-date" %>
                 <% if post.shared_from_id %>
                     <span> - Shared</span>
                 <% else %>

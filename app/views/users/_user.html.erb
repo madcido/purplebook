@@ -1,10 +1,10 @@
 <div class="tile row flex-center space-between">
     <div class="row flex-center">
-        <%= image_tag gravatar_url(user.email), alt: "user avatar", class: "user-avatar" %>
+        <%= image_tag avatar_for(user), alt: "user avatar", class: "user-avatar" %>
         <div class="user-info">
-            <%= link_to contained(user.display_name), user %>
+            <%= link_to display_name(user), user %>
             <% if user != current_user %>
-                <div class="mini-list left-list">
+                <div class="mini-list bottom- left-list">
                     <%= render "layouts/list", collection: user.friends.merge(current_user.friends), type: "mutual friend" %>
                 </div>
             <% end %>

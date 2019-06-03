@@ -10,10 +10,10 @@
                     <%= submit_tag "Go", name: nil, class: "search-btn" %>
                 <% end %>
             <% end %>
-            <div class="row flex-center">
+            <div class="row flex-center p-rel">
                 <%= link_to current_user, class: "row flex-center nav-avatar nav-item" do %>
-                    <%= image_tag gravatar_url(current_user.email), alt: "user gratavar" %>
-                    <p><%= first_name(current_user.name) %></p>
+                    <%= image_tag avatar_for(current_user), alt: "user avatar" %>
+                    <p><%= first_name(display_name(current_user)) %></p>
                 <% end %>
                 <%= link_to root_path, class: "nav-item" do %>
                     <i class="fas fa-home"></i>
@@ -22,7 +22,7 @@
                     <i class="fas fa-users"></i>
                 <% end %>
                 <%= render "friendships/notifications" %>
-                <%= link_to destroy_user_session_path, method: :delete, class: "nav-item" do %>
+                <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out?" }, class: "nav-item" do %>
                     <i class="fas fa-sign-out-alt"></i>
                 <% end %>
             </div>

@@ -1,5 +1,7 @@
 <div class="tile profile-info col flex-center">
-    <%= image_tag gravatar_url(@user.email), alt: "user avatar", class: "profile-avatar"%>
+    <div class="profile-avatar">
+        <%= image_tag avatar_for(@user), alt: "user avatar" %>
+    </div>
     <div class="profile-name">
         <p><%= @user.name %></p>
     </div>

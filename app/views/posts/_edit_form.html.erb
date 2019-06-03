@@ -1,12 +1,10 @@
 <%= form_for @post do |f| %>
     <div class="post-form">
         <%= f.text_area :content, class: "post-form-content" %>
-        <%= f.radio_button :purge, "keep", checked: "checked", class: "post-form-radio" %>
-        <%= f.label :purge, "Keep attached file", value: "keep" %>
-        <%= f.radio_button :purge, "purge", class: "post-form-radio" %>
-        <%= f.label :purge, "Delete attached file", value: "purge" %>
-        <%= f.radio_button :purge, "change", class: "post-form-radio edit-attach" %>
-        <%= f.label :purge, "Change attached file", value: "change" %>
+        <%= check_box_tag :purge, nil, false, class: "post-form-check" %>
+        <%= label_tag :purge, "Delete attached file" %>
+        <%= check_box_tag :change, nil, false, class: "post-form-check edit-attach" %>
+        <%= label_tag :change, "Change attached file" %>
         <div class="d-none">
             <%= f.label :image, "Attach...", class: "gambiarra btn-style" %>
             <%= f.file_field :image, class: "post-form-image" %>
