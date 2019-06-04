@@ -1,14 +1,13 @@
-<div class="row space-between flex-start">
+<div class="p-rel">
     <div class="row">
         <%= image_tag avatar_for(post.user), alt: "user avatar", class: "post-avatar" %>
         <div class="post-info col flex-start space-evenly">
             <%= link_to display_name(post.user), post.user, class: "post-author" %>
             <div>
-                <%= link_to display_time(post.created_at), post, class: "post-date" %>
                 <% if post.shared_from_id %>
-                    <span> - Shared</span>
+                    <%= link_to "Shared " + display_time(post.created_at), post, class: "post-date" %>
                 <% else %>
-                    <span> - Original</span>
+                    <%= link_to display_time(post.created_at), post, class: "post-date" %>
                 <% end %>
             </div>
         </div>

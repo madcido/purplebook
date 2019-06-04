@@ -66,7 +66,7 @@
     color: purple;
     font-weight: bold;
 }
-.post-date, .post-date + span {
+.post-date {
     color: gray;
     font-size: 12px;
 }
@@ -75,8 +75,9 @@
     text-decoration: underline;
 }
 .post-options {
-    position: relative;
-    margin: 10px;
+    position: absolute;
+    top:10px;
+    right:10px;
     color: gray;
     text-align: right;
 }
@@ -110,6 +111,7 @@
 .post-content {
     margin: 10px;
     white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 .post-image {
     width: 100%;
@@ -152,92 +154,90 @@
 }
 .post-comments {
     margin: 10px;
-    .comment-avatar {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
-    .new-comment form {
-        display: flex;
-        margin-left: 10px;
-        border: 1px solid rgba(200, 200, 200, 1);
-        border-radius: 15px;
-        width: 100%;
-    }
+}
+.comment-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.new-comment form {
+    display: flex;
+    border: 1px solid rgba(200, 200, 200, 1);
+    border-radius: 15px;
+    width: 100%;
+}
+.comment-field {
+    padding: 0 10px;
+    line-height: 30px;
+    width: 100%;
+    min-width: 0;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(200, 200, 200, 0.25);
+}
+.comment-btn {
+    border-radius: 0 15px 15px 0;
+    width: 100px;
+}
+.new-comment:focus-within {
     .comment-field {
-        padding: 0 10px;
-        line-height: 30px;
-        width: 100%;
+        border-radius: 15px 0 0 15px;
+    }
+    .comment-btn {
+        display: block;
+    }
+}
+.comment-tile {
+    margin-top: 10px;
+    .comment-content {
+        padding: 8px 12px;
+        font-size: 14px;
         border: none;
         border-radius: 15px;
         background-color: rgba(200, 200, 200, 0.25);
-    }
-    .comment-btn {
-        border-radius: 0 15px 15px 0;
-        width: 150px;
-    }
-    .new-comment:focus-within {
-        .comment-field {
-            border-radius: 15px 0 0 15px;
-        }
-        .comment-btn {
-            display: block;
-        }
-    }
-    .comment-tile {
-        margin-top: 10px;
-        > div {
-            margin-left: 10px;
-            width: 100%;
-        }
-        .comment-content {
-            padding: 8px 12px;
-            font-size: 14px;
-            border: none;
-            border-radius: 15px;
-            background-color: rgba(200, 200, 200, 0.25);
-            > a {
-                color: purple;
-                font-weight: bold;
-            }
-            > a:hover {
-                text-decoration: underline;
-            }
-        }
-        .comment-likes {
-            position: absolute;
-            right: -2px;
-            bottom: -7px;
-            font-size: 11px;
-            line-height: 15px;
-            padding: 0 4px;
-            background-color: white;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            color: gray;
-            > i {
-                color: purple;
-                margin-right: 2px;
-            }
-        }
-        ul{
-            margin-left: 12px;
-            margin-top: 4px;
-        }
-        li {
-            display: inline-block;
-            font-size: 12px;
-            color: gray;
-        }
-        li:not(:first-child):before {
-            content:" · ";
-        }
-        .comment-option {
+        white-space: pre-wrap;
+        > a {
             color: purple;
-            cursor: pointer;
+            font-weight: bold;
         }
-        .comment-option:hover {
+        > a:hover {
             text-decoration: underline;
         }
+    }
+    .comment-likes {
+        position: absolute;
+        right: -2px;
+        bottom: -7px;
+        font-size: 11px;
+        line-height: 15px;
+        padding: 0 4px;
+        background-color: white;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        color: gray;
+        > i {
+            color: purple;
+            margin-right: 2px;
+        }
+    }
+    ul{
+        margin-left: 12px;
+        margin-top: 4px;
+    }
+    li {
+        display: inline-block;
+        font-size: 12px;
+        color: gray;
+    }
+    li:not(:first-child):before {
+        content:" · ";
+    }
+    .comment-option {
+        color: purple;
+        cursor: pointer;
+    }
+    .comment-option:hover {
+        text-decoration: underline;
     }
 }

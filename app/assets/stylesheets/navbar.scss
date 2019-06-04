@@ -153,18 +153,18 @@
 }
 
 @media (max-width: 650px) {
-    .logo-p {
-        display: block;
-    }
-    .logo-g {
-        display: none;
-    }
     .nav-search {
         display: none;
     }
 }
 
 @media (max-width: 400px) {
+    .logo-p {
+        display: block;
+    }
+    .logo-g {
+        display: none;
+    }
     .notifications .users-index-info > div > p {
         display: none;
     }
