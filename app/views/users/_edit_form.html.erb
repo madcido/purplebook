@@ -1,12 +1,20 @@
 <%= form_for @user, html: { class: "tile profile-info col flex-center" } do |f| %>
-    <input id="edit-switch" type="checkbox" class="d-none">
+    <%= check_box_tag "edit-switch", nil, false, class: "d-none" %>
+    <div class="user-cover">
+        <%= image_tag cover_for(@user) %>
+        <%= f.file_field :cover, class: "image-input d-none" %>
+    </div>
     <div class="profile-avatar p-rel">
         <%= image_tag avatar_for(@user), alt: "user avatar" %>
-        <%= f.file_field :avatar, class: "avatar-input d-none" %>
+        <%= f.file_field :avatar, class: "image-input d-none" %>
     </div>
-    <div class="row rmv-avatar-input">
-        <%= check_box_tag :purge, nil, false, class: "d-none" %>
-        <%= label_tag :purge, "Remove custom avatar", class: "d-none" %>
+    <div class="row purge-input">
+        <%= check_box_tag :purge_avatar, nil, false, class: "d-none" %>
+        <%= label_tag :purge_avatar, "Remove custom avatar", class: "d-none" %>
+    </div>
+    <div class="row purge-input">
+        <%= check_box_tag :purge_cover, nil, false, class: "d-none" %>
+        <%= label_tag :purge_cover, "Remove cover picture", class: "d-none" %>
     </div>
     <div class="profile-name">
         <p><%= @user.name %></p>
@@ -20,9 +28,9 @@
         <p><%= @user.bio %></p>
         <%= f.text_area :bio, placeholder: "Write about yourself...", class: "profile-area d-none" %>
     </div>
-    <label for="content-switch" class="friends-label profile-btn btn-style">Your Friends</label>
-    <label for="content-switch" class="posts-label profile-btn btn-style d-none">Your Posts</label>
-    <label for="edit-switch" class="profile-btn btn-style">Edit Profile</label>
+    <%= label_tag "content-switch", "Your Friends", class: "friends-label profile-btn btn-style" %>
+    <%= label_tag "content-switch", "Your Posts", class: "posts-label profile-btn btn-style d-none" %>
+    <%= label_tag "edit-switch", "Edit Profile", class: "profile-btn btn-style" %>
     <div class="col">
         <%= f.submit "Save Changes", class: "profile-btn btn-style d-none" %>
         <%= link_to "Delete Account", user_registration_path, method: "delete", class: "profile-btn bad-btn btn-style d-none", data: { confirm: "Are you sure? Your profile and posts will be lost forever!" }%>

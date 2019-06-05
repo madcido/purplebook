@@ -12,6 +12,14 @@ module ApplicationHelper
         end
     end
 
+    def cover_for(user)
+        if user.cover.attached?
+            return url_for(user.cover)
+        else
+            return "1.jpg"
+        end
+    end
+
     def display_name(user)
         name = user.name.empty? || user.name.nil? ? user.email : user.name
         contained(name)
@@ -33,6 +41,14 @@ module ApplicationHelper
 
     def find_friendship(user)
         Friendship.where(sender_id: user, receiver_id: current_user).or(Friendship.where(sender_id: current_user, receiver_id: user)).take
+    end
+
+    def find_like(resource)
+        resource.likes.find_by(user_id: current_user.id)
+    end
+
+    def find_shared(resource)
+        current_user.posts.find_by(shared_from_id: resource.origin_id)
     end
 
     def display_time(time)

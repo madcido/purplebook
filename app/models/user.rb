@@ -8,6 +8,7 @@ class User < ApplicationRecord
     devise :omniauthable, omniauth_providers: %i[facebook]
 
     has_one_attached :avatar
+    has_one_attached :cover
 
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
@@ -27,8 +28,8 @@ class User < ApplicationRecord
         User.where(id: self.sent_requests.accepted.pluck(:receiver_id)).or(User.where(id: self.received_requests.accepted.pluck(:sender_id)))
     end
 
-    def pending_requests
-        User.where(id: self.received_requests.pending.pluck(:sender_id)).all
+    def pending_friends
+        User.where(id: self.received_requests.pending.pluck(:sender_id))
     end
 
     def self.from_omniauth(auth)

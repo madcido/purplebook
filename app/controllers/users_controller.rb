@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(user_params)
-            @user.avatar.purge if params[:purge]
+            @user.avatar.purge if params[:purge_avatar]
+            @user.cover.purge if params[:purge_cover]
             flash[:success] = "Profile updated"
         else
             flash[:error] = "Update failed"
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :bio, :avatar)
+        params.require(:user).permit(:name, :email, :bio, :avatar, :cover)
     end
 
     def get_user

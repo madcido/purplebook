@@ -9,7 +9,7 @@
 </label>
 <div class="notifications d-none">
     <% if count > 0 %>
-        <%= render current_user.pending_requests %>
+        <%= render current_user.pending_friends %>
     <% else %>
         <p class="no-">No new notifications</p>
     <% end %>

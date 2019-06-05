@@ -16,16 +16,16 @@
         <%= render "layouts/action", action: "like", resource: post, collection: post.likers.ids %>
     </div>
     <div>
-        <label for="comment-switch-<%= post.id %>" class="i-container row flex-center center">
+        <%= label_tag "comment-switch-" + post.id.to_s, class: "i-container row flex-center center" do %>
             <i class="far fa-comment-alt"></i>
             <p>Comment</p>
-        </label>
+        <% end %>
     </div>
     <div>
         <%= render "layouts/action", action: "share", resource: post, collection: post.sharers.ids %>
     </div>
 </div>
-<input id="comment-switch-<%= post.id %>" type="checkbox" class="comment-switch d-none">
+<%= check_box_tag "comment-switch-" + post.id.to_s, nil, false, class: "comment-switch d-none" %>
 <div class="post-comments d-none">
     <%= render "comments/new", post: post%>
     <%= render post.comments %>

@@ -1,4 +1,4 @@
-<input id="content-switch" type="checkbox" class="d-none">
+<%= check_box_tag "content-switch", nil, false, class: "d-none" %>
 <% if @user == current_user %>
     <%= render "users/edit_form" %>
 <% else %>

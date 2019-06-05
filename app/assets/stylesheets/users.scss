@@ -2,17 +2,33 @@
     position: fixed;
     width: 198px;
     max-height: 83vh;
+    z-index: 2;
+    .user-cover {
+        width: 800px;
+        height: 200px;
+        box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.7);
+        border-radius: 3px;
+        position: absolute;
+        top: -100px;
+        rigth: 50%;
+        margin-right: -400px;
+        overflow: hidden;
+        > img {
+            width: 100%;
+        }
+    }
     .profile-avatar {
         width: 120px;
         height: 120px;
-        border-radius: 5px;
-        border: 1px solid purple;
+        border-radius: 50%;
+        border: 3px solid white;
         box-shadow: 0 0 2px black;
         margin: 30px 0 10px 0;
+        z-index: 3;
         > img {
             width: 100%;
             height: 100%;
-            border-radius: 5px;
+            border-radius: 50%;
         }
     }
     .profile-name {
@@ -74,13 +90,13 @@
             }
         }
     }
-    .avatar-input {
+    .image-input {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 90px;
     }
-    .rmv-avatar-input {
+    .purge-input {
         width: 178px;
         margin: 0 auto;
         font-size: 14px;
@@ -97,7 +113,7 @@
     .profile-area {
         box-sizing: inherit;
         width: 100%;
-        height: 130px;
+        height: 120px;
         background-color: rgba(200, 200, 200, 0.25);
         border: 1px solid rgb(200, 200, 200);
         border-radius: 5px;
@@ -152,6 +168,7 @@
 .user-content {
     float: right;
     width: 388px;
+    padding-top: 110px;
 }
 .user-avatar {
     width: 80px;
@@ -211,11 +228,15 @@
         margin: 0 auto;
         max-height: none;
     }
+    .user-cover {
+        right: 50%;
+    }
     .user-content {
         float: none;
         width: auto;
         max-width: 400px;
         margin: 0 auto;
+        padding-top: 0;
     }
 }
 
