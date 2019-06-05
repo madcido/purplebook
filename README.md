@@ -1,24 +1,7 @@
-# README
+Microverse Ruby on Rails project: Final Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Assignment: Build a social web page similar to Facebook
 
-Things you may want to cover:
+Author: <a href="https://github.com/madcido">Fabio Carmo</a>
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Preview: <link to heroku here after merging to master>
