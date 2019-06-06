@@ -2,7 +2,6 @@
     <div class="tile post-form">
         <%= f.label :content, "Create Post", class: "post-form-label"%>
         <%= f.text_area :content, placeholder: "What's on your mind, #{first_name(display_name(current_user))}?", class: "post-form-content" %>
-        <%= f.label :image, "Attach...", class: "gambiarra btn-style" %>
         <%= f.file_field :image, class: "post-form-image" %>
         <div class="post-form-btns d-none">
             <%= f.submit "Share", class: "post-form-submit btn-style" %>
