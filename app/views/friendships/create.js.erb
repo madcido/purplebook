@@ -1,0 +1,1 @@
+$("#user-<%= @friendship.receiver_id %>-friend").empty().append("<%= j render "layouts/action", action: "friend", resource: @friendship.receiver, collection: @friendship.receiver.friends.ids %>");

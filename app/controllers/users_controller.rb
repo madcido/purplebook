@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action { redirect_to new_user_session_path unless current_user }
     before_action :get_user, only: [:show, :update]
-    before_action :get_objects, only: [:show]
 
     def index
         if params[:search]
@@ -9,12 +8,9 @@ class UsersController < ApplicationController
         else
             @users = User.all.paginate(page: params[:page], per_page: 10)
         end
-        @new_friend = Friendship.new()
     end
 
-    def show
-        @new_friend = Friendship.new()
-    end
+    def show; end
 
     def update
         if @user.update(user_params)

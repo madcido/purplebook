@@ -16,8 +16,8 @@
     </div>
     <%= label_tag "content-switch", first_name(@user.name) + "'s Friends", class: "friends-label profile-btn btn-style" %>
     <%= label_tag "content-switch", first_name(@user.name) + "'s Posts", class: "posts-label profile-btn btn-style d-none" %>
-    <p class="fr-msg"><%= friendship_action(find_friendship(@user)) %></p>
-    <div class="row profile-btn gambiarra2 -hrz">
+    <p id="fr-msg"><%= friendship_action(find_friendship(@user)) %></p>
+    <div class="row profile-btn gambiarra2 -hrz" id="user-<%= @user.id %>-friend">
         <%= render "layouts/action", action: "friend", resource: @user, collection: @user.friends.ids %>
     </div>
 </div>

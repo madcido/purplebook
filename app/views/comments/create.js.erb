@@ -1,0 +1,3 @@
+$("#post-<%= @comment.post_id %>-comments").prepend("<%= j render @comment %>");
+$("#post-<%= @comment.post_id %>-input").val("");
+$("#post-<%= @comment.post_id %>-commenters").empty().append("<%= j render "layouts/list", collection: @comment.post.commenters, type: "Comment" %>");

@@ -7,6 +7,7 @@ gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'will_paginate', '~> 3.1.0'
 gem 'friendly_id', '~> 5.2.4'
 gem 'omniauth-facebook'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

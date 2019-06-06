@@ -1,4 +1,4 @@
-<div class="tile">
+<div class="tile" id="post-<%= post.id %>">
     <%= render "posts/header", post: post %>
     <p class="post-content"><%= post.content %></p>
     <% if post.image.attached? %>

@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
     before_action { redirect_to new_user_session_path unless current_user }
     before_action :get_post, only: [:show, :edit, :update]
-    before_action :get_objects, only: [:index, :show]
 
     def index
         @posts = Post.where(user_id: current_user.friends.ids << current_user.id).all.includes(:comments).includes(:likers).paginate(page: params[:page], per_page: 20)
@@ -34,7 +33,7 @@ class PostsController < ApplicationController
 
     def destroy
         Post.find_by(id: params[:id]).destroy
-        flash[:success] = "Post deleted"
+        flash[:notice] = "Post deleted"
         redirect_to request.referrer
     end
 

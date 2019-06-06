@@ -3,12 +3,7 @@ class FriendshipsController < ApplicationController
 
     def create
         @friendship = Friendship.new(friendship_params)
-        if @friendship.save
-            flash[:success] = "Friendship request sent"
-        else
-            flash[:error] = "Friendship request failed"
-        end
-        redirect_to request.referrer
+        respond_to { |format| format.js if @friendship.save }
     end
 
     def update
@@ -16,17 +11,17 @@ class FriendshipsController < ApplicationController
         if @friendship.update(friendship_params)
             flash[:success] = "Friendship accepted"
         else
-            flash[:success] = "Friendship failed"
+            flash[:error] = "Friendship failed"
         end
         redirect_to request.referrer
     end
 
     def destroy
         Friendship.find_by(id: params[:id]).destroy
-        flash[:success] = "Friendship destroyed"
+        flash[:notice] = "Friendship destroyed"
         redirect_to request.referrer
     end
-    
+
     private
 
     def friendship_params

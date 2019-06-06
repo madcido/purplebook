@@ -11,7 +11,7 @@
         </div>
     </div>
     <% if user != current_user %>
-        <div class="user-btns col gambiarra2 -vtc">
+        <div class="user-btns col gambiarra2 -vtc" id="user-<%= user.id %>-friend">
             <%= render "layouts/action", action: "friend", resource: user, collection: user.friends.ids %>
         </div>
     <% end %>

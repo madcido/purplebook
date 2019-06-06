@@ -3,18 +3,13 @@ class CommentsController < ApplicationController
 
     def create
         @comment = current_user.comments.build(comment_params)
-        if @comment.save
-            flash[:success] = "Comment created"
-        else
-            flash[:error] = "Comment can't be blank"
-        end
-        redirect_to request.referrer
+        respond_to { |format| format.js if @comment.save }
     end
 
     def destroy
-        Comment.find_by(id: params[:id]).destroy
-        flash[:success] = "Comment deleted"
-        redirect_to request.referrer
+        @comment = Comment.find_by(id: params[:id])
+        @comment.destroy
+        respond_to { |format| format.js }
     end
 
     private

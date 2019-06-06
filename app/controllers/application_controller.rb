@@ -7,11 +7,4 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     end
 
-    def get_objects
-        @new_post = Post.new()
-        @new_like = Like.new()
-        @new_comment = Comment.new()
-        @comments = Comment.all
-    end
-    
 end

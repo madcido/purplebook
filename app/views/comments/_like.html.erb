@@ -1,4 +1,4 @@
-<%= form_for @new_like do |f| %>
+<%= form_for @new_like = Like.new, remote: true do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :liked_id, value: resource.id %>
     <%= f.hidden_field :liked_type, value: "Comment" %>

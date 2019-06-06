@@ -1,4 +1,4 @@
-<%= form_for @new_post do |f| %>
+<%= form_for @new_post = Post.new do |f| %>
     <%= f.hidden_field :content, value: resource.content %>
     <% if resource.image.attached? %>
         <%= hidden_field_tag :shared, resource.id %>

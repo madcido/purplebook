@@ -3,18 +3,13 @@ class LikesController < ApplicationController
 
     def create
         @like = Like.new(like_params)
-        if @like.save
-            flash[:success] = "Like added"
-        else
-            flash[:error] = "Like failed"
-        end
-        redirect_to request.referrer
+        respond_to { |format| format.js if @like.save }
     end
 
     def destroy
-        Like.find_by(id: params[:id]).destroy
-        flash[:success] = "Like removed"
-        redirect_to request.referrer
+        @like = Like.find_by(id: params[:id])
+        @like.destroy
+        respond_to { |format| format.js }
     end
 
     private
