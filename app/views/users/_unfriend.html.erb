@@ -1,1 +1,1 @@
-<%= link_to mode ||= "Unfriend", friendship ||= find_friendship(resource), method: "delete", data: { confirm: "Are you sure?" }, class: "bad-btn btn-style d-block"%>
+<%= link_to mode ||= "Unfriend", friendship ||= find_friendship(resource), method: "delete", remote: true, data: { confirm: "Are you sure?" }, class: "bad-btn btn-style d-block"%>

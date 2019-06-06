@@ -1,0 +1,5 @@
+$("#notifications-panel").replaceWith("<%= j render "friendships/notifications" %>");
+
+$("#fr-msg").text("<%= friendship_action(find_friendship(nil)) %>");
+$("#user-<%= @friendship.receiver_id %>-fr-btn").empty().append("<%= j render "layouts/action", action: "friend", resource: @friendship.receiver, collection: @friendship.receiver.friends.ids %>");
+$("#user-<%= @friendship.sender_id %>-fr-btn").empty().append("<%= j render "layouts/action", action: "friend", resource: @friendship.sender, collection: @friendship.sender.friends.ids %>");

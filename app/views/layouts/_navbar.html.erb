@@ -21,6 +21,7 @@
                 <%= link_to users_path, class: "nav-item" do %>
                     <i class="fas fa-users"></i>
                 <% end %>
+                <%= check_box_tag "notification-switch", nil, false, class: "d-none" %>
                 <%= render "friendships/notifications" %>
                 <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out?" }, class: "nav-item" do %>
                     <i class="fas fa-sign-out-alt"></i>

@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
     def create
         @comment = current_user.comments.build(comment_params)
-        respond_to { |format| format.js if @comment.save }
+        @comment.save
+        respond_to { |format| format.js }
     end
 
     def destroy

@@ -74,9 +74,9 @@
 #notification-switch:checked {
     + label {
         background-color: rgba(88, 0, 88, 0.5);
-    }
-    ~ div {
-        display: block;
+        > div {
+            display: block;
+        }
     }
 }
 .notifications {

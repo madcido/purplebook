@@ -3,7 +3,8 @@ class LikesController < ApplicationController
 
     def create
         @like = Like.new(like_params)
-        respond_to { |format| format.js if @like.save }
+        @like.save
+        respond_to { |format| format.js }
     end
 
     def destroy
