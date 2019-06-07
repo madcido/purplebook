@@ -1,15 +1,12 @@
 <%= form_for @post do |f| %>
     <div class="post-form">
         <%= f.text_area :content, class: "post-form-content" %>
+        <%= f.file_field :image, class: "post-form-image", id: "image-input", onchange: "showInput('image-input', 'image-display')" %>
         <%= check_box_tag :purge, nil, false, class: "post-form-check" %>
-        <%= label_tag :purge, "Delete attached file" %>
-        <%= check_box_tag :change, nil, false, class: "post-form-check edit-attach" %>
-        <%= label_tag :change, "Change attached file" %>
-        <div class="d-none">
-            <%= f.file_field :image, class: "post-form-image" %>
-        </div>
+        <%= label_tag :purge, "Remove attached file" %>
         <div class="post-form-btns">
             <%= f.submit "Save", class: "post-form-submit btn-style" %>
         </div>
+        <%= image_tag url_for(@post.image), alt: "post image", id: "image-display" %>
     </div>
 <% end %>

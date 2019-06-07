@@ -15,3 +15,16 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function showInput(origin, target) {
+    let input = document.getElementById(origin);
+    let display = document.getElementById(target);
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            display.setAttribute("src", e.target.result);
+            display.setAttribute("class", "d-block");
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}

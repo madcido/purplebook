@@ -1,12 +1,12 @@
 <%= form_for @user, html: { class: "tile profile-info col flex-center" } do |f| %>
     <%= check_box_tag "edit-switch", nil, false, class: "d-none" %>
     <div class="user-cover">
-        <%= image_tag cover_for(@user) %>
-        <%= f.file_field :cover, class: "image-input d-none" %>
+        <%= image_tag cover_for(@user), id: "cover-display" %>
+        <%= f.file_field :cover, class: "image-input d-none", id: "cover-input", onchange: "showInput('cover-input', 'cover-display')" %>
     </div>
     <div class="profile-avatar p-rel">
-        <%= image_tag avatar_for(@user), alt: "user avatar" %>
-        <%= f.file_field :avatar, class: "image-input d-none" %>
+        <%= image_tag avatar_for(@user), alt: "user avatar", id: "avatar-display" %>
+        <%= f.file_field :avatar, class: "image-input d-none", id: "avatar-input", onchange: "showInput('avatar-input', 'avatar-display')" %>
     </div>
     <div class="row purge-input">
         <%= check_box_tag :purge_avatar, nil, false, class: "d-none" %>
