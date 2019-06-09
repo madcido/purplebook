@@ -12,11 +12,11 @@ class Friendship < ApplicationRecord
 
     def not_friends
         query = ["sender_id = #{sender_id} AND receiver_id = #{receiver_id} OR sender_id = #{receiver_id} AND receiver_id = #{sender_id}"]
-        errors.add(:sender_id, "and receiver already friends!") if Friendship.where(query).exists?
+        errors.add(:sender, "and receiver already friends") if Friendship.where(query).exists?
     end
 
     def not_same
-        errors.add(:sender_id, "can't be friend with self!") if sender_id == receiver_id
+        errors.add(:sender, "can't be friends with self") if sender_id == receiver_id
     end
 
 end
