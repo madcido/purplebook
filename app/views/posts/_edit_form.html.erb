@@ -7,6 +7,10 @@
         <div class="post-form-btns">
             <%= f.submit "Save", class: "post-form-submit btn-style" %>
         </div>
-        <%= image_tag url_for(@post.image), alt: "post image", id: "image-display" %>
+        <% if @post.image.attached? %>
+            <%= image_tag url_for(@post.image), alt: "post image", id: "image-display" %>
+        <% else %>
+            <%= image_tag "", alt: "post image", class: "d-none", id: "image-display" %>
+        <% end %>
     </div>
 <% end %>
