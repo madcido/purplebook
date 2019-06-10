@@ -1,0 +1,8 @@
+<% if @like.liked_type == "Comment" %>
+    <% comment = Comment.find_by(id: @like.liked_id) %>
+    $("#comment-<%= comment.id %>").replaceWith("<%= j render comment %>");
+<% else %>
+    <% post = Post.find_by(id: @like.liked_id) %>
+    $("#post-<%= post.id %>-likers").empty().append("<%= j render "layouts/list", collection: post.likers, type: "Like" %>");
+    $("#post-<%= post.id %>-like").empty().append("<%= j render "layouts/action", action: "like", resource: post, collection: post.likers.ids %>");
+<% end %>

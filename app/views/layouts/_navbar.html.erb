@@ -1,0 +1,37 @@
+<nav class="navbar">
+    <div class="row flex-center space-between nav-container">
+        <%= link_to image_tag("white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-g nav-item" %>
+        <%= link_to image_tag("mini-white.png", alt: "logo", class: "logo"), root_path, class: "nav-logo logo-p nav-item d-none" %>
+        <% if current_user %>
+            <%= form_tag users_path, method: "get" do %>
+                <%= label_tag :search, class: "nav-search row" do %>
+                    <i class="fas fa-search"></i>
+                    <%= text_field_tag :search, "", class: "search-field", autocomplete: "off" %>
+                    <%= submit_tag "Go", name: nil, class: "search-btn" %>
+                <% end %>
+            <% end %>
+            <div class="row flex-center p-rel">
+                <%= link_to current_user, class: "row flex-center nav-avatar nav-item" do %>
+                    <%= image_tag avatar_for(current_user), alt: "user avatar" %>
+                    <p><%= first_name(display_name(current_user)) %></p>
+                <% end %>
+                <%= link_to root_path, class: "nav-item" do %>
+                    <i class="fas fa-home"></i>
+                <% end %>
+                <%= link_to users_path, class: "nav-item" do %>
+                    <i class="fas fa-users"></i>
+                <% end %>
+                <%= check_box_tag "notification-switch", nil, false, class: "d-none" %>
+                <%= render "friendships/notifications" %>
+                <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out?" }, class: "nav-item" do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="row flex-center">
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-item" %>
+                <%= link_to "Log In", new_user_session_path, class: "nav-item" %>
+            </div>
+        <% end %>
+    </div>
+</nav>

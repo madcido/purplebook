@@ -1,0 +1,7 @@
+<%= form_for @new_like = Like.new, remote: true do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :liked_id, value: resource.id %>
+    <%= f.hidden_field :liked_type, value: "Comment" %>
+    <%= f.label "Like", for: "comment-like-#{resource.id}", class: "comment-option" %>
+    <%= f.submit "Like", id: "comment-like-#{resource.id}", class: "d-none" %>
+<% end %>

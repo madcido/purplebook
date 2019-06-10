@@ -1,0 +1,34 @@
+<div class="post-lists row space-between">
+    <div class="mini-list left-list" id="post-<%= post.id %>-likers">
+        <%= render "layouts/list", collection: post.likers, type: "Like" %>
+    </div>
+    <div class="row">
+        <div class="mini-list right-list" id="post-<%= post.id %>-commenters">
+            <%= render "layouts/list", collection: post.commenters, type: "Comment" %>
+        </div>
+        <div class="mini-list right-list">
+            <%= render "layouts/list", collection: post.sharers, type: "Share" %>
+        </div>
+    </div>
+</div>
+<div class="post-actions row">
+    <div id="post-<%= post.id %>-like">
+        <%= render "layouts/action", action: "like", resource: post, collection: post.likers.ids %>
+    </div>
+    <div>
+        <%= label_tag "comment-switch-" + post.id.to_s, class: "i-container row flex-center center" do %>
+            <i class="far fa-comment-alt"></i>
+            <p>Comment</p>
+        <% end %>
+    </div>
+    <div>
+        <%= render "layouts/action", action: "share", resource: post, collection: post.sharers.ids %>
+    </div>
+</div>
+<%= check_box_tag "comment-switch-" + post.id.to_s, nil, false, class: "comment-switch d-none" %>
+<div class="d-none">
+    <%= render "comments/new", post: post%>
+    <div id="post-<%= post.id %>-comments">
+        <%= render post.comments %>
+    </div>
+</div>

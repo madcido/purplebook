@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Purplebook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag "mini-purple.png" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <%= render "layouts/navbar" %>
+    <% if current_user %>
+        <div class="main-box">
+            <%= yield %>
+        </div>
+    <% else %>
+        <div class="devise-box">
+            <%= image_tag "purple.png", alt: "purplebook logo", class: "logo" %>
+            <%= yield %>
+        </div>
+    <% end %>
+</body>
 </html>

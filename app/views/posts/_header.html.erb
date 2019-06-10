@@ -1,0 +1,18 @@
+<div class="p-rel">
+    <div class="row">
+        <%= image_tag avatar_for(post.user), alt: "user avatar", class: "post-avatar" %>
+        <div class="post-info col flex-start space-evenly">
+            <%= link_to display_name(post.user), post.user, class: "post-author" %>
+            <div>
+                <% if post.shared_from_id %>
+                    <%= link_to "Shared " + display_time(post.created_at), post, class: "post-date" %>
+                <% else %>
+                    <%= link_to "Posted " + display_time(post.created_at), post, class: "post-date" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <% if post.user == current_user %>
+        <%= render "posts/options", post: post %>
+    <% end %>
+</div>

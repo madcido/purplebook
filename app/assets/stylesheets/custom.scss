@@ -1,0 +1,145 @@
+.main-box {
+    padding-top: 70px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.field_with_errors {
+    display: inline;
+}
+
+.field_with_errors label{
+    color: red;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.p-rel {
+    position: relative;
+}
+
+.btn-style {
+    box-shadow: 0 0 1px black;
+    background-color: rgb(128, 40, 128);
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 3px;
+    transition: 0.3s;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn-style:hover {
+    background-color: purple;
+}
+
+.bad-btn {
+    opacity: 0.6;
+}
+
+.bad-btn:hover {
+    opacity: 1;
+}
+
+.tile {
+    border: 1px solid rgba(200, 200, 200, 0.8);
+    border-radius: 3px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+.mini-list {
+    position: relative;
+    p {
+        font-size: 12px;
+        color: gray;
+        cursor: default;
+    }
+    p:hover {
+        text-decoration: underline;
+        + ul {
+            display: block;
+        }
+    }
+    a {
+        color: white;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    ul {
+        position: absolute;
+        bottom: 15px;
+        z-index: 1;
+        background-color: rgb(60, 60, 60);
+        border-radius: 3px;
+        box-shadow: inset 0 0 1px black;
+        list-style: none;
+        font-size: 12px;
+        padding: 5px;
+        white-space: nowrap;
+        li {
+            margin-bottom: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        li:last-child {
+            margin: 0;
+        }
+    }
+    ul:hover {
+        display: block;
+    }
+}
+
+.left-list {
+    margin-right: 5px;
+    ul {
+        left: 0;
+    }
+}
+
+.right-list {
+    margin-left: 5px;
+    ul {
+        right: 0;
+    }
+}
+
+.bottom- ul {
+    bottom: auto;
+    top: 15px;
+}
+
+.logo {
+    width: inherit;
+    height: inherit;
+}
+
+.pagination {
+    text-align: center;
+    font-size: 15px;
+    .previous_page {
+        margin-right: 10px;
+    }
+    .next_page {
+        margin-left: 10px;
+    }
+    .current {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: bold;
+        margin: 0 5px;
+    }
+}

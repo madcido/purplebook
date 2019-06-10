@@ -1,0 +1,23 @@
+/* FLASH */
+
+.flash {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 300px;
+    line-height: 30px;
+    margin: 20px auto;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.error {
+    background-color: rgba(200, 0, 0, 0.3);
+}
+
+.success {
+    background-color: rgba(0, 200, 0, 0.3);
+}
+
+.notice {
+    background-color: rgba(0, 0, 200, 0.3);
+}

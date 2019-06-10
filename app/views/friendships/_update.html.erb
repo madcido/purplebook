@@ -1,0 +1,4 @@
+<%= form_for friendship, remote: true do |f| %>
+    <%= f.hidden_field :pending, value: false %>
+    <%= f.submit "Accept", class: "btn-style" %>
+<% end %>

@@ -1,0 +1,40 @@
+.devise-box {
+    padding-top: 70px;
+    width: 300px;
+    margin: 0 auto;
+    form {
+        width: 219px;
+        margin: 25px auto;
+    }
+    .field {
+        margin: 10px 0;
+    }
+    .button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+.devise-links {
+    list-style: none;
+    margin: 25px 0;
+    text-align: center;
+    font-size: 14px;
+    li {
+        display: inline-block;
+    }
+    li:not(:first-child):before {
+        content:" · ";
+    }
+    a {
+        color: purple;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+.devise-errors {
+    list-style-position: inside;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: red;
+}

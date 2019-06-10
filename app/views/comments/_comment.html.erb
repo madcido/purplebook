@@ -1,0 +1,21 @@
+<div class="comment-tile row flex-start" id="comment-<%= comment.id %>">
+    <%= image_tag avatar_for(comment.user), alt: "user avatar", class: "comment-avatar" %>
+    <div class="col flex-start">
+        <div class="p-rel">
+            <p class="comment-content"><%= link_to display_name(comment.user), comment.user %> <%= comment.content %></p>
+            <% if (count = comment.likes.count) > 0 %>
+                <div class="comment-likes row flex-center">
+                    <i class="far fa-thumbs-up"></i>
+                    <p><%= count %></p>
+                </div>
+            <% end %>
+        </div>
+        <ul>
+            <li><%= render "layouts/action", action: "like", resource: comment, collection: comment.likers.ids %></li>
+            <% if comment.user == current_user %>
+                <li><%= link_to "Delete", comment, method: "delete", remote: true, data: { confirm: "Delete comment?" }, class: "comment-option" %></li>
+            <% end %>
+            <li><%= display_time(comment.created_at) %></li>
+        </ul>
+    </div>
+</div>

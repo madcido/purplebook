@@ -1,0 +1,38 @@
+<%= form_for @user, html: { class: "tile profile-info col flex-center" } do |f| %>
+    <%= check_box_tag "edit-switch", nil, false, class: "d-none" %>
+    <div class="user-cover">
+        <%= image_tag cover_for(@user), id: "cover-display" %>
+        <%= f.file_field :cover, class: "image-input d-none", id: "cover-input", onchange: "showInput('cover-input', 'cover-display')" %>
+    </div>
+    <div class="profile-avatar p-rel">
+        <%= image_tag avatar_for(@user), alt: "user avatar", id: "avatar-display" %>
+        <%= f.file_field :avatar, class: "image-input d-none", id: "avatar-input", onchange: "showInput('avatar-input', 'avatar-display')" %>
+    </div>
+    <div class="row purge-input">
+        <%= check_box_tag :purge_avatar, nil, false, class: "d-none" %>
+        <%= label_tag :purge_avatar, "Remove custom avatar", class: "d-none" %>
+    </div>
+    <div class="row purge-input">
+        <%= check_box_tag :purge_cover, nil, false, class: "d-none" %>
+        <%= label_tag :purge_cover, "Remove cover picture", class: "d-none" %>
+    </div>
+    <div class="profile-name">
+        <p><%= @user.name %></p>
+        <%= f.text_field :name, placeholder: "Your name", class: "profile-input d-none" %>
+    </div>
+    <div class="profile-email">
+        <p><%= @user.email %></p>
+        <%= f.text_field :email, placeholder: "Your e-mail", class: "profile-input d-none" %>
+    </div>
+    <div class="profile-bio">
+        <p><%= @user.bio %></p>
+        <%= f.text_area :bio, placeholder: "Write about yourself...", class: "profile-area d-none" %>
+    </div>
+    <%= label_tag "content-switch", "Your Friends", class: "friends-label profile-btn btn-style" %>
+    <%= label_tag "content-switch", "Your Posts", class: "posts-label profile-btn btn-style d-none" %>
+    <%= label_tag "edit-switch", "Edit Profile", class: "profile-btn btn-style" %>
+    <div class="col">
+        <%= f.submit "Save Changes", class: "profile-btn btn-style d-none" %>
+        <%= link_to "Delete Account", user_registration_path, method: "delete", class: "profile-btn bad-btn btn-style d-none", data: { confirm: "Are you sure? Your profile and posts will be lost forever!" }%>
+    </div>
+<% end %>

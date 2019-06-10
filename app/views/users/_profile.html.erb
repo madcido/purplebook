@@ -1,0 +1,23 @@
+<div class="tile profile-info col flex-center">
+    <div class="user-cover">
+        <%= image_tag cover_for(@user) %>
+    </div>
+    <div class="profile-avatar">
+        <%= image_tag avatar_for(@user), alt: "user avatar" %>
+    </div>
+    <div class="profile-name">
+        <p><%= @user.name %></p>
+    </div>
+    <div class="profile-email">
+        <p><%= @user.email %></p>
+    </div>
+    <div class="profile-bio">
+        <p><%= @user.bio %></p>
+    </div>
+    <%= label_tag "content-switch", first_name(@user.name) + "'s Friends", class: "friends-label profile-btn btn-style" %>
+    <%= label_tag "content-switch", first_name(@user.name) + "'s Posts", class: "posts-label profile-btn btn-style d-none" %>
+    <p id="fr-msg"><%= friendship_action(find_friendship(@user)) %></p>
+    <div class="row profile-btn gambiarra2 -hrz" id="user-<%= @user.id %>-fr-btn">
+        <%= render "layouts/action", action: "friend", resource: @user, collection: @user.friends.ids %>
+    </div>
+</div>

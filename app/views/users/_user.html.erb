@@ -1,0 +1,18 @@
+<div class="tile row flex-center space-between">
+    <div class="row flex-center">
+        <%= image_tag avatar_for(user), alt: "user avatar", class: "user-avatar" %>
+        <div class="user-info">
+            <%= link_to display_name(user), user %>
+            <% if user != current_user %>
+                <div class="mini-list bottom- left-list">
+                    <%= render "layouts/list", collection: user.friends.merge(current_user.friends), type: "mutual friend" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <% if user != current_user %>
+        <div class="user-btns col gambiarra2 -vtc" id="user-<%= user.id %>-fr-btn">
+            <%= render "layouts/action", action: "friend", resource: user, collection: user.friends.ids %>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class="new-comment row">
+    <%= image_tag avatar_for(current_user), alt: "user avatar", class: "comment-avatar" %>
+    <%= form_for @new_comment = Comment.new, remote: true do |f| %>
+        <%= f.hidden_field :post_id, value: post.id %>
+        <%= f.text_field :content, placeholder: "Write a comment...", class: "comment-field", autocomplete: "off", id: "post-#{post.id}-input" %>
+        <%= f.submit "Comment", class: "comment-btn btn-style d-none" %>
+    <% end %>
+</div>
