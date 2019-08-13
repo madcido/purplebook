@@ -1,5 +1,5 @@
 # Purplebook
-The Odin Project, Ruby on Rails Final Project: Build a social web page with functionality similar to Facebook
+The Odin Project, Ruby on Rails Course: Build a social web page with functionality similar to Facebook
 
 ## Live preview
 http://blooming-retreat-56703.herokuapp.com/
