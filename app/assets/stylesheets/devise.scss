@@ -8,6 +8,10 @@
     }
     .field {
         margin: 10px 0;
+        input:not([type="checkbox"]) {
+          box-sizing: border-box;
+          width: 100%;
+        }
     }
     .button {
         width: 100%;
